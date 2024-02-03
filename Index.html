@@ -11,7 +11,7 @@
 </head>
 
 <script 
-src="Login.js">
+src="scripts/Login.js">
 </script>
 
 <body>
@@ -27,9 +27,8 @@ src="Login.js">
         </div>
         <table>
             <tr>
-                <td><img src="Birla_Institute_of_Technology_Mesra.png" alt="University Logo" height="100px" width="100px"></td>
-                
-                <td><h2>बिरला प्रौद्योगिकी संस्थान<br> Institute Of Technology, Mesra <br>
+                <td><img style="padding: 5%;" src="res\BIT_Logo.png" alt="University Logo" height="100px" width="100px"></td>
+                <td><h2 style="margin-left: 5%;">बिरला प्रौद्योगिकी संस्थान<br>Birla Institute Of Technology, Mesra <br>
                 </h2></td>
                 
             </tr>
@@ -55,15 +54,18 @@ src="Login.js">
             <!-- Add more features as needed -->
         </ul>
 
-        <h3>Login</h3>
+        <h3 style="text-align: center;">
+            Login
+        </h3>
+
         <form name="myLogin" onsubmit = "return validation()">
-            <label for="email">email:</label>
-            <input type="text" id="email" name="Email" placeholder="Enter an Email"> 
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="Email" placeholder="Enter email"> 
 
             <label for="password">Password:</label>
-            <input type="password" maxlength="15" id="password" name="Password" placeholder="Enter a Password">
+            <input type="password" maxlength="15" id="password" name="Password" placeholder="Enter password">
 
-            <input type="submit" value = "Send" name="Login"/>
+            <button type="submit"> Login </button>
         </form>
 
  
