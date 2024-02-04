@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fontawesome.com/icons/house-chimney?f=sharp&s=solid">
-
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;1,400&display=swap" rel="stylesheet">
     <title>Bit Mesra Transport Office</title>
 </head>
 
@@ -60,10 +62,10 @@ src="scripts/Login.js">
 
         <form name="myLogin" onsubmit = "return validation()">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="Email" placeholder="Enter email"> 
+            <input type="email" id="email" name="Email" required placeholder="Enter email"> 
 
             <label for="password">Password:</label>
-            <input type="password" maxlength="15" id="password" name="Password" placeholder="Enter password">
+            <input type="password" maxlength="15" id="password" required name="Password" placeholder="Enter password">
 
             <button type="submit"> Login </button>
         </form>
