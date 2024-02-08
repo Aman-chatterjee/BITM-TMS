@@ -3,23 +3,19 @@ function validation(){
     var email = document.getElementById("email").value.toLowerCase();
     var pass = document.getElementById("password").value;
     
-        if(email == "" || !isValidEmail(email)){
+        if(!isValidEmail(email)){
             alert("Please enter a valid Email");
             return false;
         }
 
-        if(pass == ""){
-            alert("Please enter a valid password!");
-            return false;
-        }
-        
-        if(pass.length < 8){
-            alert("Password must be greater than 8 digit");
+        if(!isPasswordValid(pass)){
+            alertText = "Your password must contain of minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:"
+            alert(alertText);
             return false;
         } 
         
-        document.write("Logged in with "+ email);
         alert("Success!");
+        document.write("Loggedin with "+ email);
         return true;
 
     }
@@ -28,4 +24,10 @@ function validation(){
 function isValidEmail(email) {
 const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 return emailRegex.test(email);
+}
+
+function isPasswordValid(password){
+    //Returns true if the password is of minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    return passwordRegex.test(password);
 }

@@ -1,73 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/CSS/index.css">
+    <link rel="stylesheet" href="css/index.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://fontawesome.com/icons/house-chimney?f=sharp&s=solid">
 
-    <title>Bit Mesra Transport Office</title>
+    <title>BIT Mesra Transport Office</title>
 </head>
 
-<script 
-src="scripts/Login.js">
-</script>
+<script src="scripts/login.js"></script>
 
 <body>
-    
+
     <header>
         <div class="navbar">
             <a href="#home">Home</a>
-             
+
             <div class="subnav">
-              <button class="subnavbtn">Services <i class="fa fa-caret-down"></i></button>
-              <div class="subnav-content">
-                <a href="#View Routes & Timing">View Routes & Timing</a>
-                <a href="#Real time tracking">Real time tracking</a>
-                <a href="#Book Transports">Book Transports</a>
-                <a href="#Work Status Monitoring">Work Status Monitoring</a>
-                <a href="#Leave Application ">Leave Application </a>
-                <a href="#View Rating & Feedback  ">View Rating & Feedback  </a>
-                
-              </div>
-            </div> 
+                <button class="subnavbtn">Services <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="#view-routes-timing">View Routes & Timing</a>
+                    <a href="#real-time-tracking">Real-time Tracking</a>
+                    <a href="#book-transports">Book Transports</a>
+                    <a href="#work-status-monitoring">Work Status Monitoring</a>
+                    <a href="#leave-application">Leave Application</a>
+                    <a href="#view-rating-feedback">View Rating & Feedback</a>
+                </div>
+            </div>
             <div class="subnav">
-              <button class="subnavbtn">Support <i class="fa fa-caret-down"></i></button>
-              <div class="subnav-content">
-                <a href="#Submit Complaint">Submit Complaint </a>
-                <a href="#Rating & Feedback">Rating & Feedback</a>
-                
-              </div>
+                <button class="subnavbtn">Support <i class="fa fa-caret-down"></i></button>
+                <div class="subnav-content">
+                    <a href="#submit-complaint">Submit Complaint</a>
+                    <a href="#rating-feedback">Rating & Feedback</a>
+                </div>
             </div>
             <a href="#contact">Contact Us</a>
-            <a href="#About">About Us</a>
-
-            <a href="#Login">Login</a>
+            <a href="#about">About Us</a>
+            <a href="#login">Login</a>
+            
             <div class="subnav">
-                <button class="subnavbtn">Registration <i class="fa fa-caret-down"></i></button>
+                <button class="subnavbtn">Register <i class="fa fa-caret-down"></i></button>
                 <div class="subnav-content">
-                  <a href="Student_Registration.html">Student Registration</a>
-                  <a href="Faculty.html">Faculty Registration</a>
-                  <a href="#Employee Registration ">Employee Registration</a>
+                    <a href="html/student_registration.html">Student Registration</a>
+                    <a href="html/faculty_registration.html">Faculty Registration</a>
+                    <a href="html/employee_registration.html">Employee Registration</a>
                 </div>
-              </div>
+            </div>
 
-          </div>
+        </div>
+
         <div class="logo">
             <table>
                 <tr>
-                    <td><img style="padding: 5%;" src="/res/BIT_Logo.png" alt="University Logo" height="100px" width="100px"></td>
-                    <td><h2 style="margin-left: 5%;">बिरला प्रौद्योगिकी संस्थान<br>Birla Institute Of Technology, Mesra <br>
-                    </h2></td>
-                    
+                    <td><img style="padding: 5%;" src="res/bit_logo.png" alt="University Logo" height="100px" width="100px"></td>
+                    <td>
+                        <h2 style="margin-left: 5%;">बिरला प्रौद्योगिकी संस्थान<br>Birla Institute Of Technology, Mesra <br>
+                        </h2>
+                    </td>
                 </tr>
             </table>
         </div>
-
-        
-
     </header>
+
     <main class="container">
         <h2>Welcome to BIT Mesra Transport Management System</h2>
 
@@ -89,22 +86,18 @@ src="scripts/Login.js">
             Login
         </h3>
 
-        <form name="myLogin" onsubmit = "return validation()">
+        <form name="myLogin" onsubmit="return validation()">
             <label for="email">Email:</label>
-            <input type="email" id="email" name="Email" placeholder="Enter email"> 
+            <input type="email" id="email" name="email" placeholder="Enter email">
 
             <label for="password">Password:</label>
-            <input type="password" maxlength="15" id="password" name="Password" placeholder="Enter password">
+            <input type="password" maxlength="15" id="password" name="password" placeholder="Enter password">
 
-            <button type="submit"> Login </button>
+            <button type="submit">Login</button>
         </form>
-
- 
 
 
     </main>
-    
-    
-
 </body>
+
 </html>
