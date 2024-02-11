@@ -1,0 +1,84 @@
+/* Reset some default form styles */
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    background-image: url(../res/bg.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: 'Roboto', sans-serif;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the container for the registration form */
+#registration-form-container {
+    width: 80%;
+    max-width: 600px;
+    margin: 2em auto;
+    margin-bottom: 5em;
+    padding: 1em;
+    border-radius: 8px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.75);
+    box-shadow: 2px 2px 2px 2px #202020;
+}
+
+/* Style form labels and inputs */
+label {
+    display: block;
+    margin-top: 1em;
+    font-weight: 150;
+}
+
+input, select {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.5em;
+    box-sizing: border-box;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    width: auto; /* Adjust width for the button */
+    padding: 0.5em 1em; /* Add padding for a better appearance */
+}
+
+/* Hover effect on the submit button */
+input[type="submit"]:hover {
+    background-color: #2072a3;
+}
+
+/* Arrange form inputs using flexbox for mixed layout */
+#student-registration-form {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+#student-registration-form label,
+#student-registration-form input,
+#student-registration-form select {
+    flex: 1 1 calc(50% - 1em); /* Adjust width and spacing */
+}
+
+/* Additional styles for responsiveness */
+@media only screen and (max-width: 600px) {
+    #registration-form-container {
+        width: 90%;
+    }
+
+    #student-registration-form label,
+    #student-registration-form input,
+    #student-registration-form select {
+        flex: 1 1 100%; /* Full width on small screens */
+    }
+}

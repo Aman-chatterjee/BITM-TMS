@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Registration</title>
+    <link rel="stylesheet" href="../css/employee-registration.css">
+    <script src="../js/header-footer.js"></script>
+</head>
+
+<body>
+
+    <!-- Custom Header -->
+    <my-header></my-header>
+
+    <!-- Employee Registration Form -->
+    <div id="registration-form-container">
+        <h2>Employee Registration Form</h2>
+        <form id="employee-registration-form">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="phone-no">Phone Number:</label>
+            <input type="number" id="phone-no" name="phone-no" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+
+            <label for="employee-id">Employee ID:</label>
+            <input type="number" id="employee-id" name="employee-id" placeholder="Enter your employee ID" required>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" placeholder="Select your date of birth" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="role">Role:</label>
+            <select id="role" name="role" required>
+                <option value="" disabled selected>Select your role</option>
+                <option value="Driver">Driver</option>
+                <option value="Conductor">Conductor</option>
+                <option value="Manager">Manager</option>
+                <option value="Other">Other</option>
+            </select>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter a password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <!-- Custom Footer -->
+    <my-footer></my-footer>
+
+</body>
+
+</html>

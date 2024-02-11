@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    width: auto;
+    height: fit-content;
+    justify-content: center;
+    color: #ecf0f1; 
+    background-image: url(../res/bus.jpg);
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: 50% 70%;
+    align-items: center;
+}
+
+h1 {
+    padding: 0.5em;
+    font-size: 25px;
+    text-align: start;
+    text-shadow: 2px 2px #5887a1;
+    color: #ffffff;
+}
+
+.logo {
+    width: 7em;
+    height: auto;
+    align-content: center;
+    padding: 1em;
+    margin-top: 1em;
+}
+
+
+nav {
+    background-color: rgba(0, 0, 0, 0.8); 
+    overflow-x: auto;
+    font-weight:600;
+    white-space: nowrap;
+    border-radius: 0px;
+    box-shadow: 2px 2px 2px 4px #202020;
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex; 
+    width: 100%;
+}
+
+nav ul li {
+    display: block;
+}
+
+nav li a {
+    display: block;
+    color: #ecf0f1; 
+    padding: 18px;
+    text-decoration: none;
+}
+
+nav ul li a:hover {
+    background-color: #070707;
+    color: #ecf0f1;
+}
+
+nav ul .register-list .register-dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.65);
+    box-shadow: 2px 2px 5px 5px #202020;
+    border-radius: 1px;
+}
+
+nav ul .register-list:hover .register-dropdown {
+    display: flex; 
+    position: absolute;
+    flex-direction: column;
+    width: fit-content;
+}
+
+nav ul .login-list .login-dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.65);
+    box-shadow: 2px 2px 5px 5px #202020;
+    border-radius: 1px;
+}
+
+nav ul .login-list:hover .login-dropdown {
+    display: flex; 
+    position: absolute;
+    flex-direction: column;
+    width: fit-content;
+}
+
+
+
+
+/*---------------- Responsive Styles-------------------------------------------------------- */
+@media only screen and (max-width: 600px) {
+    .logo {
+        width: 5em;
+        padding: .5em;
+        margin-top: .5em;
+    }
+
+    h1 {
+        padding: 0.5em;
+        font-size: 20px;
+    }
+
+    nav {
+        margin-top: 0.5em;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 10px;
+        font-size: 14px;
+    }
+}

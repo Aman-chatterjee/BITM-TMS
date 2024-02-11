@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Faculty Registration</title>
+    <link rel="stylesheet" href="../css/faculty-registration.css">
+    <script src="../js/header-footer.js"></script>
+</head>
+
+<body>
+
+    <!-- Custom Header -->
+    <my-header></my-header>
+
+    <!-- Faculty Registration Form -->
+    <div id="registration-form-container">
+        <h2>Faculty Registration Form</h2>
+        <form id="faculty-registration-form">
+            <label for="first-name">First Name:</label>
+            <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+
+            <label for="last-name">Last Name:</label>
+            <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+
+            <label for="phone-no">Phone Number:</label>
+            <input type="number" id="phone-no" name="phone-no" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="department">Department:</label>
+            <select id="department" name="department" required>
+                <option value="" disabled selected>Select your department</option>
+                <option value="Computer Science">Computer Science</option>
+                <option value="Mathematics">Mathematics</option>
+                <option value="Business Management">Business Management</option>
+                <option value="Others">Others</option>
+            </select>
+
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob" placeholder="Select your date of birth" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Others">Others</option>
+            </select>
+
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter a password" required>
+
+            <label for="confirm-password">Confirm Password:</label>
+            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+
+            <input type="submit" value="Register">
+        </form>
+    </div>
+
+    <!-- Custom Footer -->
+    <my-footer></my-footer>
+
+ 
+
+</body>
+
+</html>

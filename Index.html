@@ -1,103 +1,46 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/index.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fontawesome.com/icons/house-chimney?f=sharp&s=solid">
-
-    <title>BIT Mesra Transport Office</title>
+    <title>BIT Mesra Transport Management System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/index.css">
+    <script src="../js/header-footer.js"></script>
 </head>
 
-<script src="scripts/login.js"></script>
-
 <body>
+    
+    <my-header></my-header>
+ 
+<main class="container">
 
-    <header>
-        <div class="navbar">
-            <a href="#home">Home</a>
-
-            <div class="subnav">
-                <button class="subnavbtn">Services <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    <a href="#view-routes-timing">View Routes & Timing</a>
-                    <a href="#real-time-tracking">Real-time Tracking</a>
-                    <a href="#book-transports">Book Transports</a>
-                    <a href="#work-status-monitoring">Work Status Monitoring</a>
-                    <a href="#leave-application">Leave Application</a>
-                    <a href="#view-rating-feedback">View Rating & Feedback</a>
-                </div>
-            </div>
-            <div class="subnav">
-                <button class="subnavbtn">Support <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    <a href="#submit-complaint">Submit Complaint</a>
-                    <a href="#rating-feedback">Rating & Feedback</a>
-                </div>
-            </div>
-            <a href="#contact">Contact Us</a>
-            <a href="#about">About Us</a>
-            <a href="#login">Login</a>
-            
-            <div class="subnav">
-                <button class="subnavbtn">Register <i class="fa fa-caret-down"></i></button>
-                <div class="subnav-content">
-                    <a href="html/student_registration.html">Student Registration</a>
-                    <a href="html/faculty_registration.html">Faculty Registration</a>
-                    <a href="html/employee_registration.html">Employee Registration</a>
-                </div>
-            </div>
-
-        </div>
-
-        <div class="logo">
-            <table>
-                <tr>
-                    <td><img style="padding: 5%;" src="res/bit_logo.png" alt="University Logo" height="100px" width="100px"></td>
-                    <td>
-                        <h2 style="margin-left: 5%;">बिरला प्रौद्योगिकी संस्थान<br>Birla Institute Of Technology, Mesra <br>
-                        </h2>
-                    </td>
-                </tr>
-            </table>
-        </div>
-    </header>
-
-    <main class="container">
+    <div>
         <h2>Welcome to BIT Mesra Transport Management System</h2>
-
         <p>
             The BIT Mesra Transport Management System is designed to streamline and simplify the process for students, staff, employees, and administrators.
         </p>
-
+   
         <h3>Features:</h3>
         <ul>
             <li>View bus routes and timings</li>
             <li>Check bus capacity</li>
             <li>Track buses in real-time</li>
             <li>Book transport vehicles</li>
-            <li>Apply for leaves</li>
-            <!-- Add more features as needed -->
+            <li>Apply for leaves (For Employees)</li>
         </ul>
+    </div>
 
-        <h3 style="text-align: center;">
-            Login
-        </h3>
+</main>
 
-        <form name="myLogin" onsubmit="return validation()">
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter email">
-
-            <label for="password">Password:</label>
-            <input type="password" maxlength="15" id="password" name="password" placeholder="Enter password">
-
-            <button type="submit">Login</button>
-        </form>
+<my-footer></my-footer>
 
 
-    </main>
+
+
 </body>
+
 
 </html>
