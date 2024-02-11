@@ -1,0 +1,68 @@
+/* Reset some default form styles */
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+    font-family: 'Roboto', sans-serif;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+/* Style the container for the login popup */
+#login-popup-container {
+    width: 80%;
+    max-width: 400px;
+    margin: 2em auto;
+    padding: 1em;
+    border-radius: 8px;
+    color: white;
+    background-color: rgba(0, 0, 0, 0.8);
+    box-shadow: 2px 2px 2px 2px #202020;
+    text-align: left; /* Align the text to the left */
+}
+
+/* Style form labels and inputs */
+label {
+    display: block; /* Display block to have labels on new lines */
+    margin-top: 1em;
+    font-weight: 150;
+}
+
+input {
+    width: 100%;
+    padding: 0.5em;
+    margin-top: 0.3em;
+    box-sizing: border-box;
+}
+
+/* Style the "Forgot Password" link */
+#forgot-password {
+    margin-top: 1em;
+    font-size: 0.8em; /* Make the font size smaller */
+    text-align: left;
+}
+
+#forgot-password a {
+    color: #3498db;
+    text-decoration: none;
+}
+
+/* Style the submit button */
+input[type="submit"] {
+    margin-top: 2.5em;
+    margin-bottom: 2.5em;
+    background-color: #3498db;
+    color: #fff;
+    cursor: pointer;
+    width: 100%; /* Make the button full width */
+    padding: 0.8em; /* Adjust padding for a better appearance */
+}
+
+/* Hover effect on the submit button */
+input[type="submit"]:hover {
+    background-color: #2072a3;
+}

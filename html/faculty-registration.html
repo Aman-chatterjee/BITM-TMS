@@ -18,20 +18,20 @@
     <div id="registration-form-container">
         <h2>Faculty Registration Form</h2>
         <form id="faculty-registration-form">
-            <label for="first-name">First Name:</label>
-            <input type="text" id="first-name" name="first-name" placeholder="Enter your first name" required>
+            <label for="faculty-first-name">First Name:</label>
+            <input type="text" id="faculty-first-name" name="faculty-first-name" placeholder="Enter your first name" required>
 
-            <label for="last-name">Last Name:</label>
-            <input type="text" id="last-name" name="last-name" placeholder="Enter your last name" required>
+            <label for="faculty-last-name">Last Name:</label>
+            <input type="text" id="faculty-last-name" name="faculty-last-name" placeholder="Enter your last name" required>
 
-            <label for="phone-no">Phone Number:</label>
-            <input type="number" id="phone-no" name="phone-no" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
+            <label for="faculty-phone-no">Phone Number:</label>
+            <input type="number" id="faculty-phone-no" name="faculty-phone-no" placeholder="Enter your phone number" pattern="[0-9]{10}" required>
 
-            <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+            <label for="faculty-email">Email:</label>
+            <input type="text" id="faculty-email" name="faculty-email" placeholder="Enter your email" required>
 
-            <label for="department">Department:</label>
-            <select id="department" name="department" required>
+            <label for="faculty-department">Department:</label>
+            <select id="faculty-department" name="faculty-department" required>
                 <option value="" disabled selected>Select your department</option>
                 <option value="Computer Science">Computer Science</option>
                 <option value="Mathematics">Mathematics</option>
@@ -39,23 +39,22 @@
                 <option value="Others">Others</option>
             </select>
 
-            <label for="dob">Date of Birth:</label>
-            <input type="date" id="dob" name="dob" placeholder="Select your date of birth" required>
+            <label for="faculty-dob">Date of Birth:</label>
+            <input type="date" id="faculty-dob" name="faculty-dob" placeholder="Select your date of birth" required>
 
-            <label for="gender">Gender:</label>
-            <select id="gender" name="gender" required>
+            <label for="faculty-gender">Gender:</label>
+            <select id="faculty-gender" name="faculty-gender" required>
                 <option value="" disabled selected>Select your gender</option>
                 <option value="Male">Male</option>
                 <option value="Female">Female</option>
                 <option value="Others">Others</option>
             </select>
 
+            <label for="faculty-password">Password:</label>
+            <input type="password" id="faculty-password" name="faculty-password" placeholder="Enter a password" required>
 
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" placeholder="Enter a password" required>
-
-            <label for="confirm-password">Confirm Password:</label>
-            <input type="password" id="confirm-password" name="confirm-password" placeholder="Confirm your password" required>
+            <label for="faculty-confirm-password">Confirm Password:</label>
+            <input type="password" id="faculty-confirm-password" name="faculty-confirm-password" placeholder="Confirm your password" required>
 
             <input type="submit" value="Register">
         </form>
@@ -63,8 +62,6 @@
 
     <!-- Custom Footer -->
     <my-footer></my-footer>
-
- 
 
 </body>
 
