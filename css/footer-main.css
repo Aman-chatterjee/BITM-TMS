@@ -17,6 +17,11 @@ footer {
     height: auto;
 }
 
+footer p {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 200;
+}
+
 
 
 /*---------------- Responsive Styles-------------------------------------------------------- */

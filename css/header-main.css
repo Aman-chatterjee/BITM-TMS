@@ -35,7 +35,7 @@ h1 {
 nav {
     background-color: rgba(0, 0, 0, 0.8); 
     overflow-x: auto;
-    font-weight:600;
+    font-weight:500;
     white-space: nowrap;
     border-radius: 0px;
     box-shadow: 2px 2px 2px 4px #202020;
@@ -82,6 +82,21 @@ nav ul .register-list:hover .register-dropdown {
     width: fit-content;
 }
 
+nav ul .services-list .services-dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.65);
+    box-shadow: 2px 2px 5px 5px #202020;
+    border-radius: 1px;
+}
+
+nav ul .services-list:hover .services-dropdown {
+    display: flex; 
+    position: absolute;
+    flex-direction: column;
+    width: fit-content;
+}
+
 nav ul .login-list .login-dropdown {
     display: none;
     position: absolute;
@@ -96,6 +111,22 @@ nav ul .login-list:hover .login-dropdown {
     flex-direction: column;
     width: fit-content;
 }
+
+nav ul .support-list .support-dropdown {
+    display: none;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.65);
+    box-shadow: 2px 2px 5px 5px #202020;
+    border-radius: 1px;
+}
+
+nav ul .support-list:hover .support-dropdown {
+    display: flex; 
+    position: absolute;
+    flex-direction: column;
+    width: fit-content;
+}
+
 
 
 
