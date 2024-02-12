@@ -22,16 +22,15 @@ const db = getFirestore(app);
 let registerUser = async (evt) => {
   evt.preventDefault();
 
-  var fName = document.getElementById("student-first-name").value;
-  var lName = document.getElementById("student-last-name").value;
-  var rollNo = document.getElementById("student-roll-no").value;
-  var phoneNo = document.getElementById("student-phone-no").value;
-  var dob = document.getElementById("student-dob").value;
-  var gender = document.getElementById("student-gender").value;
-  var course = document.getElementById("student-course").value;
-  var email = document.getElementById("student-email").value.toLowerCase();
-  var password = document.getElementById("student-password").value;
-  var conPassword = document.getElementById("student-confirm-password").value;
+  var fName = document.getElementById("faculty-first-name").value;
+  var lName = document.getElementById("faculty-last-name").value;
+  var phoneNo = document.getElementById("faculty-phone-no").value;
+  var dob = document.getElementById("faculty-dob").value;
+  var gender = document.getElementById("faculty-gender").value;
+  var department = document.getElementById("faculty-department").value;
+  var email = document.getElementById("faculty-email").value.toLowerCase();
+  var password = document.getElementById("faculty-password").value;
+  var conPassword = document.getElementById("faculty-confirm-password").value;
 
   if (!isValidEmail(email)) {
     alert("Please enter a valid email");
@@ -52,18 +51,17 @@ let registerUser = async (evt) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     var uID = user.uid;
-    const docRef = await addDoc(collection(db, "root/users/student"), {
+    const docRef = await addDoc(collection(db, "root/users/faculty"), {
       userID: uID,
       firstName: fName,
       lastName: lName,
-      rollNo: rollNo,
       email: email,
       phoneNo: phoneNo,
       dob: dob,
       gender: gender,
-      course: course
+      department: department
     }).then(() => {
-          alert("Student registered successfully");
+          alert("Faculty registered successfully");
           console.log("Document successfully written!");
       })
       .catch((error) => {
@@ -77,7 +75,7 @@ let registerUser = async (evt) => {
   }
 };
 
-var form = document.getElementById('student-registration-form');
+var form = document.getElementById('faculty-registration-form');
 if (form) {
   form.addEventListener('submit', registerUser);
 }

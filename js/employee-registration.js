@@ -22,16 +22,16 @@ const db = getFirestore(app);
 let registerUser = async (evt) => {
   evt.preventDefault();
 
-  var fName = document.getElementById("student-first-name").value;
-  var lName = document.getElementById("student-last-name").value;
-  var rollNo = document.getElementById("student-roll-no").value;
-  var phoneNo = document.getElementById("student-phone-no").value;
-  var dob = document.getElementById("student-dob").value;
-  var gender = document.getElementById("student-gender").value;
-  var course = document.getElementById("student-course").value;
-  var email = document.getElementById("student-email").value.toLowerCase();
-  var password = document.getElementById("student-password").value;
-  var conPassword = document.getElementById("student-confirm-password").value;
+  var fName = document.getElementById("employee-first-name").value;
+  var lName = document.getElementById("employee-last-name").value;
+  var phoneNo = document.getElementById("employee-phone-no").value;
+  var dob = document.getElementById("employee-dob").value;
+  var gender = document.getElementById("employee-gender").value;
+  var employeeID = document.getElementById("employee-id").value;
+  var employeeRole = document.getElementById("employee-role").value;
+  var email = document.getElementById("employee-email").value.toLowerCase();
+  var password = document.getElementById("employee-password").value;
+  var conPassword = document.getElementById("employee-confirm-password").value;
 
   if (!isValidEmail(email)) {
     alert("Please enter a valid email");
@@ -52,18 +52,18 @@ let registerUser = async (evt) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     var uID = user.uid;
-    const docRef = await addDoc(collection(db, "root/users/student"), {
+    const docRef = await addDoc(collection(db, "root/users/employee"), {
       userID: uID,
       firstName: fName,
       lastName: lName,
-      rollNo: rollNo,
       email: email,
       phoneNo: phoneNo,
       dob: dob,
       gender: gender,
-      course: course
+      employeeRole: employeeRole,
+      employeeID: employeeID
     }).then(() => {
-          alert("Student registered successfully");
+          alert("Employee registered successfully");
           console.log("Document successfully written!");
       })
       .catch((error) => {
@@ -77,7 +77,7 @@ let registerUser = async (evt) => {
   }
 };
 
-var form = document.getElementById('student-registration-form');
+var form = document.getElementById('employee-registration-form');
 if (form) {
   form.addEventListener('submit', registerUser);
 }
