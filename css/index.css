@@ -1,28 +1,90 @@
-
 body {
-    margin: 0;
-    padding: 0;
-    background-color: #f2f2f2;
-    background-repeat: no-repeat;
-    background-size: cover;
-    font-family: 'Roboto', sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f2f2f2;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  display: flex;
+}
+
+#description {
+  flex: 1; /* Take up 50% space */
+  text-align: start;
+  margin: 3em;
+  margin-bottom: 2em;
+}
+
+#login-container {
+  flex: 1; /* Take up 50% space */
+  width: 65%;
+  height: fit-content;
+  max-width: 300px;
+  margin: 3em;
+  align-self: center;
+  margin-right: 5em;
+  margin-bottom: 6.5em;
+  padding: 1em;
+  border-radius: 8px;
+  color: white;
+  background-color: rgba(0, 0, 0, 0.8);
+  box-shadow: 2px 2px 2px 2px #202020;
+  text-align: left;
+}
+
+.login-h2 {
+  margin-top: 0.2em;
+  font-weight: 100;
+  text-align: center;
+}
+
+label {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 0.25em;
+  font-weight: 100;
+  font-size:small;
+}
+
+input {
+  width: 100%;
+  padding: 0.5em;
+  margin-top: 0.3em;
+  box-sizing: border-box;
+}
+
+#forgot-password {
+  margin-top: 1em;
+  font-size: 0.8em;
+  text-align: left;
+  font-size: small;
+}
+
+#forgot-password a {
+  color: #3498db;
+  text-decoration: none;
+}
+
+input[type="submit"] {
+  margin-top: 2em;
+  margin-bottom: 2em;
+  background-color: #3498db;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  padding: 0.8em;
+}
+
+input[type="submit"]:hover {
+  background-color: #2072a3;
 }
 
 
-
-div{
-    text-align:start;
-    padding: 5em;
-    margin-bottom: 2em;
-}
-
-
-  
-  form {
-    max-width: 500px;
-    margin: auto;
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+/* Media query for screens smaller than 600px (adjust as needed) */
+@media screen and (max-width: 600px) {
+  #login-container {
+    margin-right: 1em; /* Remove right margin on smaller screens */
+    width: 35%;
   }
+}

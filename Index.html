@@ -18,7 +18,7 @@
  
 <main class="container">
 
-    <div>
+    <div id="description">
         <h2>Welcome to BIT Mesra Transport Management System</h2>
         <p>
             The BIT Mesra Transport Management System is designed to streamline and simplify the process for students, staff, employees, and administrators.
@@ -29,10 +29,31 @@
             <li>View bus routes and timings</li>
             <li>Check bus capacity</li>
             <li>Track buses in real-time</li>
-            <li>Book transport vehicles</li>
-            <li>Apply for leaves (For Employees)</li>
+            <li>Book transport vehicles (Faulty only)</li>
+            <li>Apply for leaves (Employees only)</li>
         </ul>
+
     </div>
+
+    
+    <div id="login-container">
+        <h2 class="login-h2">Login</h2>
+        <form id="login-form">
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+
+            <div id="forgot-password">
+                <a href="#">Forgot Password?</a>
+            </div>
+
+            <input type="submit" value="Login">
+        </form>
+    </div>
+
+    
 
 </main>
 

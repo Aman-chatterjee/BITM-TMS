@@ -1,14 +1,18 @@
 /* Reset some default form styles */
 
-body{
+.student-body{
     margin: 0;
     padding: 0;
     background-color: #f2f2f2;
-    background-image: url(../res/bg.jpg);
+    background-image: url(../res/bit-bg.png);
+    background-position:center;
     background-repeat: no-repeat;
     background-size: cover;
+    backdrop-filter: blur(7px);
+    display:grid;
     font-family: 'Roboto', sans-serif;
 }
+
 
 form {
     margin: 0;
@@ -22,6 +26,8 @@ form {
     margin: 2em auto;
     margin-bottom: 5em;
     padding: 1em;
+    padding-left: 2em;
+    padding-right: 2em;
     border-radius: 8px;
     color: white;
     background-color: rgba(0, 0, 0, 0.75);
@@ -62,6 +68,12 @@ input[type="submit"]:hover {
 #student-registration-form {
     display: flex;
     flex-wrap: wrap;
+}
+
+.student-h2{
+    text-align: center;
+    padding-top: 0.5em;
+    padding-bottom: 1em;
 }
 
 #student-registration-form label,

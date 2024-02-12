@@ -9,15 +9,17 @@
 
     <script type="module" src="../js/student-registration.js"></script>
     <script src="../js/header-footer.js"></script> 
+  
 </head>
 
-<body>
+<body class="student-body">
     <!-- Custom Header -->
     <my-header></my-header>
 
   <!-- Student Registration Form -->
-  <div id="registration-form-container">
-    <h2>Student Registration Form</h2>
+  <main id="registration-form-container">
+    <h2 class="student-h2">Student Registration Form</h2>
+    
     <form id="student-registration-form">
         <label for="first-name">First Name:</label>
         <input type="text" id="student-first-name" name="first-name" placeholder="Enter your first name" required>
@@ -26,7 +28,7 @@
         <input type="text" id="student-last-name" name="last-name" placeholder="Enter your last name" required>
 
         <label for="roll-no">Roll Number:</label>
-        <input type="number" id="student-roll-no" name="roll-no" placeholder="Enter your roll number" required>
+        <input type="text" id="student-roll-no" name="roll-no" placeholder="Enter your roll number" required>
 
         <label for="email">Email:</label>
         <input type="text" id="student-email" name="email" placeholder="Enter your email" required>
@@ -65,11 +67,10 @@
         <input type="submit" value="Register">
     </form>
 
-    </div>
+  </main>
 
     <!-- Custom Footer -->
-    <my-footer></my-footer>
-
+    <my-footer></my-footer> 
 
 
 </body>
