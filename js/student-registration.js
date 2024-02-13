@@ -1,21 +1,9 @@
+import { app } from "../js/firebase-initialize.js";
 import { isValidEmail, isPasswordValid } from "../js/validation.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA496E7QXZZLd4_Eljoi7vLC2z6F_MHf00",
-  authDomain: "bit-tms.firebaseapp.com",
-  projectId: "bit-tms",
-  storageBucket: "bit-tms.appspot.com",
-  messagingSenderId: "232243889341",
-  appId: "1:232243889341:web:955fcad477709f69a4a3d4",
-  measurementId: "G-BB5WL3PGC9"
-};
+import { getFirestore, collection, doc, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
@@ -52,7 +40,9 @@ let registerUser = async (evt) => {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     var uID = user.uid;
-    const docRef = await addDoc(collection(db, "root/users/student"), {
+
+    const userRef = collection(db, "users");
+    const docRef = await setDoc(doc(userRef, user.uid), {
       userID: uID,
       firstName: fName,
       lastName: lName,
@@ -61,14 +51,33 @@ let registerUser = async (evt) => {
       phoneNo: phoneNo,
       dob: dob,
       gender: gender,
-      course: course
+      course: course,
+      accountType: "student"
     }).then(() => {
-          alert("Student registered successfully");
-          console.log("Document successfully written!");
-      })
-      .catch((error) => {
-          console.error("Error writing document: ", error);
-      });
+        alert("Student registered successfully");
+        console.log("Document successfully written!");
+    })
+    .catch((error) => {
+        console.error("Error writing document: ", error);
+    });
+
+    // const docRef = await addDoc(collection(db, "root/users/student"), {
+    //   userID: uID,
+    //   firstName: fName,
+    //   lastName: lName,
+    //   rollNo: rollNo,
+    //   email: email,
+    //   phoneNo: phoneNo,
+    //   dob: dob,
+    //   gender: gender,
+    //   course: course
+    // }).then(() => {
+    //       alert("Student registered successfully");
+    //       console.log("Document successfully written!");
+    //   })
+    //   .catch((error) => {
+    //       console.error("Error writing document: ", error);
+    //   });
   
   } catch (error) {
     const errorCode = error.code;

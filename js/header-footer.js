@@ -2,8 +2,42 @@
 class MyHeader extends HTMLElement {
     connectedCallback() {
         this.attachShadow({ mode: 'open' });
+        this.loadContent('../html/header-main.html').then(()=>{
 
-        this.loadContent('../html/header-main.html');
+            //Hiding and showing registration tab in the nav-bar
+            document.addEventListener('authStateChanged', (event) => {
+                const user = event.detail.user;
+        
+                // Now you can access elements in the loaded HTML
+                const idRegisterElement = this.shadowRoot.getElementById('id-register');
+        
+                if (idRegisterElement) {
+                    // Check if the user is authenticated and hide 'id-register' accordingly
+                    if (user) {
+                        idRegisterElement.style.display = 'none';
+                    } else {
+                        idRegisterElement.style.display = 'block'; // or 'initial' depending on your design
+                    }
+                } else {
+                    console.error("Element with id 'id-register' not found");
+                }
+            });
+
+          
+                // Find and hide the "Home" tab if on the home page
+                const currentPage = document.body.id;
+                console.log(currentPage);
+              
+                if (currentPage === 'home-page') {
+                    console.log("yes")
+                  const homeTab = this.shadowRoot.getElementById('home-tab');
+                  if (homeTab) {
+                    homeTab.style.display = 'none';
+                  }
+                }
+          
+        });
+
     }
 
     async loadContent(url) {
@@ -34,6 +68,7 @@ class MyFooter extends HTMLElement {
         this.shadowRoot.appendChild(container);
     }
 }
+
 
 
 

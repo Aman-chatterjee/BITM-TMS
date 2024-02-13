@@ -1,42 +1,32 @@
-import { isValidEmail, isPasswordValid } from "../js/validation.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { app } from "../js/firebase-initialize.js";
+import { isValidEmail } from "../js/validation.js";
+import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getFirestore, collection, doc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA496E7QXZZLd4_Eljoi7vLC2z6F_MHf00",
-  authDomain: "bit-tms.firebaseapp.com",
-  projectId: "bit-tms",
-  storageBucket: "bit-tms.appspot.com",
-  messagingSenderId: "232243889341",
-  appId: "1:232243889341:web:955fcad477709f69a4a3d4",
-  measurementId: "G-BB5WL3PGC9"
-};
-
-const app = initializeApp(firebaseConfig);
+//Intitialize Firebase Auth
 const auth = getAuth(app);
+const db = getFirestore(app);
 
 let loginUser = async (evt) => {
-    evt.preventDefault();
+  evt.preventDefault();
 
-    var email = document.getElementById("login-email").value.toLowerCase();
-    var password = document.getElementById("login-password").value;
+  var email = document.getElementById("login-email").value.toLowerCase();
+  var password = document.getElementById("login-password").value;
 
-    if (!isValidEmail(email)) {
-        alert("Please enter a valid email");
-        return false;
-      }
+  if (!isValidEmail(email)) {
+    alert("Please enter a valid email");
+    return false;
+  }
 
-    signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-        // Signed in 
-        const user = userCredential.user;
-        alert("Login Success with user id: "+user.uid);
+      // Signed in 
+      const user = userCredential.user;
+      alert("Login Successful");
     })
     .catch((error) => {
-        alert("Email or Password is incorrect!");
-        const errorCode = error.code;
-        const errorMessage = error.message;
+      const errorMessage = error.message;
+      alert(errorMessage);
     });
 
 }
@@ -44,38 +34,60 @@ let loginUser = async (evt) => {
 let logoutUser = async (evt) => {
 
   signOut(auth)
-  .then(() => {
+    .then(() => {
       // Sign-out successful.
       alert("Logout successful");
-  })
-  .catch((error) => {
+    })
+    .catch((error) => {
       // An error happened.
       console.error("Logout error:", error);
       alert("Error during logout. Please try again.");
-  });
+    });
 
 }
 
-    //Detect change in authentication
-    auth.onAuthStateChanged(function(user) {
-    if (user) {
-      document.getElementById('login-container').style.display = 'none';
-      document.getElementById('signout-container').style.display = 'block';
 
-      // Display user information
-      document.getElementById('user-info').innerHTML = `
-          <p>Email: ${user.email}</p>
-          <p>User ID: ${user.uid}</p>
-      `;
-    } else {
-      document.getElementById('login-container').style.display = 'block';
-      document.getElementById('signout-container').style.display = 'none';
-    }
-    
-  });
+//Detect change in authentication
+auth.onAuthStateChanged(function (user) {
+  if (user) {
+    document.getElementById('login-container').style.display = 'none';
+    document.getElementById('signout-container').style.display = 'block';
+    triggerAuthStateChangedEvent(user);
+  
+      const docRef = collection(db, "users");
+      const q = query(docRef, where("userID", "==", user.uid));
+      const querySnapshot = getDocs(q)
+      .then(querySnapshot => {
+        querySnapshot.forEach((doc) => {
+          // Display user information
+          var fullName = doc.data().firstName +" "+doc.data().lastName;
+          document.getElementById('user-info').innerHTML = 
+          `
+          <p>${fullName}</p>
+          <p>${user.email}</p>
+          `;
+        });
+   
+     })
+   
+  } else {
+    document.getElementById('login-container').style.display = 'block';
+    document.getElementById('signout-container').style.display = 'none';
+    triggerAuthStateChangedEvent(user);
+  }
+
+});
+
+
+
+
+function triggerAuthStateChangedEvent(user) {
+  const authStateChangedEvent = new CustomEvent('authStateChanged', { detail: { user } });
+  document.dispatchEvent(authStateChangedEvent);
+}
 
 
 var login_form = document.getElementById('login-form');
 var logout_btn = document.getElementById('logout-button');
-if (login_form){ login_form.addEventListener('submit', loginUser); }
+if (login_form) { login_form.addEventListener('submit', loginUser); }
 logout_btn.addEventListener('click', logoutUser);
