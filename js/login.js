@@ -1,6 +1,6 @@
 import { isValidEmail, isPasswordValid } from "../js/validation.js";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
-import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAuth, signOut, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -41,15 +41,41 @@ let loginUser = async (evt) => {
 
 }
 
-//     auth.onAuthStateChanged(function(user) {
-//     if (user) {
-//       console.log("YO YO")
-//     } else {
-//         console.log("NO NO")
-//     }
-//   });
+let logoutUser = async (evt) => {
 
-var form = document.getElementById('login-form');
-if (form) {
-  form.addEventListener('submit', loginUser);
+  signOut(auth)
+  .then(() => {
+      // Sign-out successful.
+      alert("Logout successful");
+  })
+  .catch((error) => {
+      // An error happened.
+      console.error("Logout error:", error);
+      alert("Error during logout. Please try again.");
+  });
+
 }
+
+    //Detect change in authentication
+    auth.onAuthStateChanged(function(user) {
+    if (user) {
+      document.getElementById('login-container').style.display = 'none';
+      document.getElementById('signout-container').style.display = 'block';
+
+      // Display user information
+      document.getElementById('user-info').innerHTML = `
+          <p>Email: ${user.email}</p>
+          <p>User ID: ${user.uid}</p>
+      `;
+    } else {
+      document.getElementById('login-container').style.display = 'block';
+      document.getElementById('signout-container').style.display = 'none';
+    }
+    
+  });
+
+
+var login_form = document.getElementById('login-form');
+var logout_btn = document.getElementById('logout-button');
+if (login_form){ login_form.addEventListener('submit', loginUser); }
+logout_btn.addEventListener('click', logoutUser);
