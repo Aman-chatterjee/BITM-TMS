@@ -10,15 +10,15 @@ const db = getFirestore(app);
 let registerUser = async (evt) => {
   evt.preventDefault();
 
-  var fName = document.getElementById("faculty-first-name").value;
-  var lName = document.getElementById("faculty-last-name").value;
-  var phoneNo = document.getElementById("faculty-phone-no").value;
-  var dob = document.getElementById("faculty-dob").value;
-  var gender = document.getElementById("faculty-gender").value;
-  var department = document.getElementById("faculty-department").value;
-  var email = document.getElementById("faculty-email").value.toLowerCase();
-  var password = document.getElementById("faculty-password").value;
-  var conPassword = document.getElementById("faculty-confirm-password").value;
+  let fName = document.getElementById("faculty-first-name").value;
+  let lName = document.getElementById("faculty-last-name").value;
+  let phoneNo = document.getElementById("faculty-phone-no").value;
+  let dob = document.getElementById("faculty-dob").value;
+  let gender = document.getElementById("faculty-gender").value;
+  let department = document.getElementById("faculty-department").value;
+  let email = document.getElementById("faculty-email").value.toLowerCase();
+  let password = document.getElementById("faculty-password").value;
+  let conPassword = document.getElementById("faculty-confirm-password").value;
 
   if (!isValidEmail(email)) {
     alert("Please enter a valid email");
@@ -38,7 +38,7 @@ let registerUser = async (evt) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    var uID = user.uid;
+    const uID = user.uid;
 
     const userRef = collection(db, "users");
     const docRef = await setDoc(doc(userRef, user.uid), {

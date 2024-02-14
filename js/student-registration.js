@@ -10,16 +10,16 @@ const db = getFirestore(app);
 let registerUser = async (evt) => {
   evt.preventDefault();
 
-  var fName = document.getElementById("student-first-name").value;
-  var lName = document.getElementById("student-last-name").value;
-  var rollNo = document.getElementById("student-roll-no").value;
-  var phoneNo = document.getElementById("student-phone-no").value;
-  var dob = document.getElementById("student-dob").value;
-  var gender = document.getElementById("student-gender").value;
-  var course = document.getElementById("student-course").value;
-  var email = document.getElementById("student-email").value.toLowerCase();
-  var password = document.getElementById("student-password").value;
-  var conPassword = document.getElementById("student-confirm-password").value;
+  let fName = document.getElementById("student-first-name").value;
+  let lName = document.getElementById("student-last-name").value;
+  let rollNo = document.getElementById("student-roll-no").value;
+  let phoneNo = document.getElementById("student-phone-no").value;
+  let dob = document.getElementById("student-dob").value;
+  let gender = document.getElementById("student-gender").value;
+  let course = document.getElementById("student-course").value;
+  let email = document.getElementById("student-email").value.toLowerCase();
+  let password = document.getElementById("student-password").value;
+  let conPassword = document.getElementById("student-confirm-password").value;
 
   if (!isValidEmail(email)) {
     alert("Please enter a valid email");
@@ -39,7 +39,7 @@ let registerUser = async (evt) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    var uID = user.uid;
+    const uID = user.uid;
 
     const userRef = collection(db, "users");
     const docRef = await setDoc(doc(userRef, user.uid), {
@@ -61,23 +61,7 @@ let registerUser = async (evt) => {
         console.error("Error writing document: ", error);
     });
 
-    // const docRef = await addDoc(collection(db, "root/users/student"), {
-    //   userID: uID,
-    //   firstName: fName,
-    //   lastName: lName,
-    //   rollNo: rollNo,
-    //   email: email,
-    //   phoneNo: phoneNo,
-    //   dob: dob,
-    //   gender: gender,
-    //   course: course
-    // }).then(() => {
-    //       alert("Student registered successfully");
-    //       console.log("Document successfully written!");
-    //   })
-    //   .catch((error) => {
-    //       console.error("Error writing document: ", error);
-    //   });
+
   
   } catch (error) {
     const errorCode = error.code;

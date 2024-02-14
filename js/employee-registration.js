@@ -10,16 +10,16 @@ const db = getFirestore(app);
 let registerUser = async (evt) => {
   evt.preventDefault();
 
-  var fName = document.getElementById("employee-first-name").value;
-  var lName = document.getElementById("employee-last-name").value;
-  var phoneNo = document.getElementById("employee-phone-no").value;
-  var dob = document.getElementById("employee-dob").value;
-  var gender = document.getElementById("employee-gender").value;
-  var employeeID = document.getElementById("employee-id").value;
-  var employeeRole = document.getElementById("employee-role").value;
-  var email = document.getElementById("employee-email").value.toLowerCase();
-  var password = document.getElementById("employee-password").value;
-  var conPassword = document.getElementById("employee-confirm-password").value;
+  let fName = document.getElementById("employee-first-name").value;
+  let lName = document.getElementById("employee-last-name").value;
+  let phoneNo = document.getElementById("employee-phone-no").value;
+  let dob = document.getElementById("employee-dob").value;
+  let gender = document.getElementById("employee-gender").value;
+  let employeeID = document.getElementById("employee-id").value;
+  let employeeRole = document.getElementById("employee-role").value;
+  let email = document.getElementById("employee-email").value.toLowerCase();
+  let password = document.getElementById("employee-password").value;
+  let conPassword = document.getElementById("employee-confirm-password").value;
 
   if (!isValidEmail(email)) {
     alert("Please enter a valid email");
@@ -39,7 +39,7 @@ let registerUser = async (evt) => {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    var uID = user.uid;
+    const uID = user.uid;
 
     const userRef = collection(db, "users");
     const docRef = await setDoc(doc(userRef, user.uid), {
