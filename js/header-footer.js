@@ -29,10 +29,11 @@ class MyHeader extends HTMLElement {
                 console.log(currentPage);
               
                 if (currentPage === 'home-page') {
-                    console.log("yes")
                   const homeTab = this.shadowRoot.getElementById('home-tab');
                   if (homeTab) {
                     homeTab.style.display = 'none';
+                  }else{
+                    homeTab.style.display = 'block';
                   }
                 }
           

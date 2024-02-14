@@ -56,13 +56,14 @@ let registerUser = async (evt) => {
     }).then(() => {
         alert("Student registered successfully");
         console.log("Document successfully written!");
+        let newPageUrl = "../index.html";
+        window.open(newPageUrl, "_self");
     })
     .catch((error) => {
         console.error("Error writing document: ", error);
     });
 
 
-  
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;

@@ -54,6 +54,8 @@ let registerUser = async (evt) => {
     }).then(() => {
           alert("Faculty registered successfully");
           console.log("Document successfully written!");
+          let newPageUrl = "../index.html";
+          window.open(newPageUrl, "_self");
       })
       .catch((error) => {
           console.error("Error writing document: ", error);
