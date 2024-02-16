@@ -1,6 +1,6 @@
 import { app } from "../js/firebase-initialize.js";
 import { isValidEmail } from "../js/validation.js";
-import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
+import { getAuth, signInWithEmailAndPassword, signOut, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore, collection, doc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
 const pb = document.querySelector('my-progress-bar');
@@ -9,11 +9,17 @@ const pb = document.querySelector('my-progress-bar');
 const auth = getAuth(app);
 const db = getFirestore(app);
 
+
+
+
+
+
+
 let loginUser = async (evt) => {
   evt.preventDefault();
 
-  var email = document.getElementById("login-email").value.toLowerCase();
-  var password = document.getElementById("login-password").value;
+  let email = document.getElementById("login-email").value.toLowerCase();
+  let password = document.getElementById("login-password").value;
 
   if (!isValidEmail(email)) {
     alert("Please enter a valid email");
@@ -38,6 +44,12 @@ let loginUser = async (evt) => {
 
 }
 
+
+
+
+
+
+
 let logoutUser = async (evt) => {
 
   signOut(auth)
@@ -52,6 +64,42 @@ let logoutUser = async (evt) => {
     });
 
 }
+
+
+
+
+
+
+
+
+let resetPasswrod = async (eve) =>{
+
+let email = document.getElementById("login-email").value.toLowerCase();
+if (!isValidEmail(email)) {
+  alert("Please enter a valid email");
+  return false;
+}
+
+pb.showProgressBar();
+sendPasswordResetEmail(auth, email)
+  .then(() => {
+      alert("Password reset email sent!")
+  })
+  .catch((error) => {
+    const errorMessage = error.message;
+    console.log(errorMessage);
+    alert(errorMessage);
+  })
+  .finally(()=>{
+    pb.hideProgressBar();
+  });
+}
+
+
+
+
+
+
 
 
 //Detect change in authentication
@@ -95,7 +143,10 @@ function triggerAuthStateChangedEvent(user) {
 }
 
 
-var login_form = document.getElementById('login-form');
-var logout_btn = document.getElementById('logout-button');
+let login_form = document.getElementById('login-form');
+let logout_btn = document.getElementById('logout-button');
+let forgot_pass = document.getElementById('forgot-password');
+
 if (login_form) { login_form.addEventListener('submit', loginUser); }
 logout_btn.addEventListener('click', logoutUser);
+forgot_pass.addEventListener('click', resetPasswrod);
