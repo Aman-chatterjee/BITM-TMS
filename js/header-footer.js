@@ -8,7 +8,6 @@ class MyHeader extends HTMLElement {
             document.addEventListener('authStateChanged', (event) => {
                 const user = event.detail.user;
         
-                // Now you can access elements in the loaded HTML
                 const idRegisterElement = this.shadowRoot.getElementById('id-register');
         
                 if (idRegisterElement) {

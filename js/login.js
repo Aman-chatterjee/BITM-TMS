@@ -3,6 +3,8 @@ import { isValidEmail } from "../js/validation.js";
 import { getAuth, signInWithEmailAndPassword, signOut } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore, collection, doc, getDocs, query, where } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+const pb = document.querySelector('my-progress-bar');
+
 //Intitialize Firebase Auth
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -18,15 +20,20 @@ let loginUser = async (evt) => {
     return false;
   }
 
+  if(pb) pb.showProgressBar();
   signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      alert("Login Successful");
+      if(pb) pb.hideProgressBar();
+      //alert("Login Successful");
     })
     .catch((error) => {
       const errorMessage = error.message;
       alert(errorMessage);
+    })
+    .finally(() => {
+        pb.hideProgressBar();
     });
 
 }
@@ -66,6 +73,7 @@ auth.onAuthStateChanged(function (user) {
           <p>${fullName}</p>
           <p>${user.email}</p>
           `;
+
         });
    
      })

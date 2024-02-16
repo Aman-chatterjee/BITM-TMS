@@ -3,6 +3,9 @@ import { isValidEmail, isPasswordValid } from "../js/validation.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore, collection, doc, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
+
+const pb = document.querySelector('my-progress-bar');
+
 // Initialize Firebase
 const auth = getAuth(app);
 const db = getFirestore(app);
@@ -36,6 +39,7 @@ let registerUser = async (evt) => {
   }
 
   try {
+    pb.showProgressBar();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
     const uID = user.uid;
@@ -59,12 +63,16 @@ let registerUser = async (evt) => {
       })
       .catch((error) => {
           console.error("Error writing document: ", error);
-      });
+      })
+      .finally(()=>{
+        pb.hideProgressBar();
+    });
   
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode + errorMessage);
+    pb.hideProgressBar();
   }
 };
 

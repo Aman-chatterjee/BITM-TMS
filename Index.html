@@ -10,11 +10,12 @@
     <link rel="stylesheet" href="../css/index.css">
 
     <script type="module" src="../js/login.js"></script>
+    <script src="../js/progress-bar.js"></script>
     <script src="../js/header-footer.js"></script>
-   
 </head>
 
 <body id="home-page">
+    
     
     <my-header></my-header>
  
@@ -37,8 +38,10 @@
 
     </div>
 
-    
+  
+        
     <div id="login-container">
+
         <h2 class="login-h2">Login</h2>
         <form id="login-form">
             <label for="email">Email:</label>
@@ -52,7 +55,9 @@
             </div>
 
             <input type="submit" value="Login">
+
         </form>
+        <my-progress-bar></my-progress-bar>
     </div>
 
     <div id="signout-container">
