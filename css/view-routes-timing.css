@@ -1,0 +1,61 @@
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background-color: #333;
+    color: #fff;
+    padding: 1rem;
+    margin: 5em;
+    text-align: center;
+}
+
+h1 {
+    margin: 0;
+}
+
+main {
+    display: flex;
+}
+/*css for Search box*/
+#search {
+    margin: 5em;
+    margin-bottom: 7em;
+    
+}
+
+form label {
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ccc;
+}
+
+form button {
+    background-color: #333;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 0.5em;
+}
+
+form button:hover {
+    background-color: #1aad41;
+}
+#results{
+    margin: auto;
+}
+#schedule {
+    border: 1px solid #ccc;
+    padding: 1em;
+    overflow-x: auto; /* Enable horizontal scrolling if needed */
+}

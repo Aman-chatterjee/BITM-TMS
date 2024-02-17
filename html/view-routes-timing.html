@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Routes and Timing</title>
+    <link rel="stylesheet" href="/css/view-routes-timing.css">
+    <script src="../js/header-footer.js"></script>
+</head>
+<body>
+    <my-header></my-header>
+    <header>
+        <h1>View Routes and Timing</h1>
+    </header>
+    
+    <main>
+        <section id="search">
+            <h2>Search Routes</h2>
+            <form id="search-form">
+                <label for="from">From:</label>
+                <input type="text" id="from" name="from" required>
+                <label for="to">To:</label>
+                <input type="text" id="to" name="to" required>
+                <button type="submit">Search</button>
+            </form>
+        </section>
+
+        <section id="results">
+            <h2>Bus Schedule</h2>
+            <div id="schedule"></div>
+        </section>
+    </main>
+    <my-footer></my-footer> 
+
+    
+
+    <script src="../js/view-routes-timing.js"></script>
+</body>
