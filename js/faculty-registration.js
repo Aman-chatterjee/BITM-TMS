@@ -1,36 +1,27 @@
+import { app } from "../js/firebase-initialize.js";
 import { isValidEmail, isPasswordValid } from "../js/validation.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, collection, doc, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA496E7QXZZLd4_Eljoi7vLC2z6F_MHf00",
-  authDomain: "bit-tms.firebaseapp.com",
-  projectId: "bit-tms",
-  storageBucket: "bit-tms.appspot.com",
-  messagingSenderId: "232243889341",
-  appId: "1:232243889341:web:955fcad477709f69a4a3d4",
-  measurementId: "G-BB5WL3PGC9"
-};
+
+const pb = document.querySelector('my-progress-bar');
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 let registerUser = async (evt) => {
   evt.preventDefault();
 
-  var fName = document.getElementById("faculty-first-name").value;
-  var lName = document.getElementById("faculty-last-name").value;
-  var phoneNo = document.getElementById("faculty-phone-no").value;
-  var dob = document.getElementById("faculty-dob").value;
-  var gender = document.getElementById("faculty-gender").value;
-  var department = document.getElementById("faculty-department").value;
-  var email = document.getElementById("faculty-email").value.toLowerCase();
-  var password = document.getElementById("faculty-password").value;
-  var conPassword = document.getElementById("faculty-confirm-password").value;
+  let fName = document.getElementById("faculty-first-name").value;
+  let lName = document.getElementById("faculty-last-name").value;
+  let phoneNo = document.getElementById("faculty-phone-no").value;
+  let dob = document.getElementById("faculty-dob").value;
+  let gender = document.getElementById("faculty-gender").value;
+  let department = document.getElementById("faculty-department").value;
+  let email = document.getElementById("faculty-email").value.toLowerCase();
+  let password = document.getElementById("faculty-password").value;
+  let conPassword = document.getElementById("faculty-confirm-password").value;
 
   if (!isValidEmail(email)) {
     alert("Please enter a valid email");
@@ -48,10 +39,13 @@ let registerUser = async (evt) => {
   }
 
   try {
+    pb.showProgressBar();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    var uID = user.uid;
-    const docRef = await addDoc(collection(db, "root/users/faculty"), {
+    const uID = user.uid;
+
+    const userRef = collection(db, "users");
+    const docRef = await setDoc(doc(userRef, user.uid), {
       userID: uID,
       firstName: fName,
       lastName: lName,
@@ -59,19 +53,26 @@ let registerUser = async (evt) => {
       phoneNo: phoneNo,
       dob: dob,
       gender: gender,
-      department: department
+      department: department,
+      accountType: "faculty"
     }).then(() => {
           alert("Faculty registered successfully");
           console.log("Document successfully written!");
+          let newPageUrl = "../index.html";
+          window.open(newPageUrl, "_self");
       })
       .catch((error) => {
           console.error("Error writing document: ", error);
-      });
+      })
+      .finally(()=>{
+        pb.hideProgressBar();
+    });
   
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode + errorMessage);
+    pb.hideProgressBar();
   }
 };
 

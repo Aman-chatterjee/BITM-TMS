@@ -1,37 +1,27 @@
+import { app } from "../js/firebase-initialize.js";
 import { isValidEmail, isPasswordValid } from "../js/validation.js";
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-app.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
-import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
+import { getFirestore, collection, doc, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA496E7QXZZLd4_Eljoi7vLC2z6F_MHf00",
-  authDomain: "bit-tms.firebaseapp.com",
-  projectId: "bit-tms",
-  storageBucket: "bit-tms.appspot.com",
-  messagingSenderId: "232243889341",
-  appId: "1:232243889341:web:955fcad477709f69a4a3d4",
-  measurementId: "G-BB5WL3PGC9"
-};
+const pb = document.querySelector('my-progress-bar');
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const db = getFirestore(app);
 
 let registerUser = async (evt) => {
   evt.preventDefault();
 
-  var fName = document.getElementById("employee-first-name").value;
-  var lName = document.getElementById("employee-last-name").value;
-  var phoneNo = document.getElementById("employee-phone-no").value;
-  var dob = document.getElementById("employee-dob").value;
-  var gender = document.getElementById("employee-gender").value;
-  var employeeID = document.getElementById("employee-id").value;
-  var employeeRole = document.getElementById("employee-role").value;
-  var email = document.getElementById("employee-email").value.toLowerCase();
-  var password = document.getElementById("employee-password").value;
-  var conPassword = document.getElementById("employee-confirm-password").value;
+  let fName = document.getElementById("employee-first-name").value;
+  let lName = document.getElementById("employee-last-name").value;
+  let phoneNo = document.getElementById("employee-phone-no").value;
+  let dob = document.getElementById("employee-dob").value;
+  let gender = document.getElementById("employee-gender").value;
+  let employeeID = document.getElementById("employee-id").value;
+  let employeeRole = document.getElementById("employee-role").value;
+  let email = document.getElementById("employee-email").value.toLowerCase();
+  let password = document.getElementById("employee-password").value;
+  let conPassword = document.getElementById("employee-confirm-password").value;
 
   if (!isValidEmail(email)) {
     alert("Please enter a valid email");
@@ -49,10 +39,13 @@ let registerUser = async (evt) => {
   }
 
   try {
+    pb.showProgressBar();
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
-    var uID = user.uid;
-    const docRef = await addDoc(collection(db, "root/users/employee"), {
+    const uID = user.uid;
+
+    const userRef = collection(db, "users");
+    const docRef = await setDoc(doc(userRef, user.uid), {
       userID: uID,
       firstName: fName,
       lastName: lName,
@@ -61,19 +54,26 @@ let registerUser = async (evt) => {
       dob: dob,
       gender: gender,
       employeeRole: employeeRole,
-      employeeID: employeeID
+      employeeID: employeeID,
+      accountType: "employee"
     }).then(() => {
           alert("Employee registered successfully");
           console.log("Document successfully written!");
+          let newPageUrl = "../index.html";
+          window.open(newPageUrl, "_self");
       })
       .catch((error) => {
           console.error("Error writing document: ", error);
+      })
+      .finally(()=>{
+          pb.hideProgressBar();
       });
   
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
     console.log(errorCode + errorMessage);
+    pb.hideProgressBar();
   }
 };
 
