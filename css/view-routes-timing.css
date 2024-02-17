@@ -20,31 +20,11 @@ h1 {
 main {
     display: flex;
 }
-
-#search-container, #schedule-container {
-    flex: 1;
-    padding: 2rem;
-}
-
-#search-container {
-    background-color: #f0f0f0;
-    margin-right: 1rem; /* Added margin between search and schedule */
-}
-
-#schedule-container {
-    background-color: #fff;
-}
-
-footer {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 1rem;
-}
-
+/*css for Search box*/
 #search {
     margin: 5em;
-    margin-bottom: 2rem;
+    margin-bottom: 7em;
+    
 }
 
 form label {
