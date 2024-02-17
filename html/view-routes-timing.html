@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>View Routes and Timing</title>
     <link rel="stylesheet" href="/css/view-routes-timing.css">
+    <link rel="stylesheet" href="/css/styles.css"> <!-- Link to the external CSS file -->
     <script src="../js/header-footer.js"></script>
 </head>
 <body>
@@ -18,9 +19,21 @@
             <h2>Search Routes</h2>
             <form id="search-form">
                 <label for="from">From:</label>
-                <input type="text" id="from" name="from" required>
+                <select id="from" name="from" required>
+                    <option value="">Select From</option>
+                    <option value="location1">Lalpur</option>
+                    <option value="location2">BIT Mesra</option>
+                    <option value="location3">Xaveir's college ranchi</option>
+                    <!-- Add more options as needed -->
+                </select>
                 <label for="to">To:</label>
-                <input type="text" id="to" name="to" required>
+                <select id="to" name="to" required>
+                    <option value="">Select To</option>
+                    <option value="location1">Lalpur</option>
+                    <option value="location2">BIT Mesra</option>
+                    <option value="location3">Xaveir's college ranchi</option>
+                    <!-- Add more options as needed -->
+                </select>
                 <button type="submit">Search</button>
             </form>
         </section>
@@ -32,7 +45,6 @@
     </main>
     <my-footer></my-footer> 
 
-    
-
     <script src="../js/view-routes-timing.js"></script>
 </body>
+</html>

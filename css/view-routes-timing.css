@@ -1,14 +1,17 @@
+/* styles.css */
+
+/* CSS for body, header, and main */
 body {
     font-family: Arial, sans-serif;
     line-height: 1.6;
     margin: 0;
     padding: 0;
+    background-color: antiquewhite;
 }
 
 header {
-    background-color: #333;
-    color: #fff;
-    padding: 1rem;
+    color: #3a3535;
+    padding: 1em;
     margin: 5em;
     text-align: center;
 }
@@ -20,11 +23,17 @@ h1 {
 main {
     display: flex;
 }
-/*css for Search box*/
+
+/* CSS for Search box */
 #search {
-    margin: 5em;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 30px;
+    margin-left: 5em;
     margin-bottom: 7em;
-    
+    background-color: white;
+    opacity: 0.6;
+    box-shadow: 2px 2px 10px #202020;
 }
 
 form label {
@@ -32,15 +41,19 @@ form label {
     margin-bottom: 0.5rem;
 }
 
-form input[type="text"] {
+form input[type="text"],
+select {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
     border: 1px solid #ccc;
+    border-radius: 0.5em;
 }
 
 form button {
-    background-color: #333;
+    
+    box-shadow: 2px 2px 10px #202020;
+    background-color: #28b7f5e3;
     color: #fff;
     border: none;
     padding: 0.5rem 1rem;
@@ -49,11 +62,20 @@ form button {
 }
 
 form button:hover {
-    background-color: #1aad41;
+    background-color: #2072a3;
 }
-#results{
-    margin: auto;
+
+#results {
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    padding: 30px;
+    margin-left: 45em;
+    margin-bottom: 7em;
+    background-color: white;
+    opacity: 0.6;
+    box-shadow: 2px 2px 10px #202020;
 }
+
 #schedule {
     border: 1px solid #ccc;
     padding: 1em;
