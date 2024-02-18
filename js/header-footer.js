@@ -36,6 +36,8 @@ class MyHeader extends HTMLElement {
                     homeTab.style.display = 'block';
                 }
             }
+
+            
             // Add event listener to toggle menu
             const menuToggle = this.shadowRoot.querySelector('.menu-toggle');
             if (menuToggle) {

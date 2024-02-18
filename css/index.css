@@ -3,11 +3,11 @@
 body{
   margin: 0;
   padding: 0;
-  background-color: #f2f2f2;
+  background-color: #faebd7;
   font-family: 'Roboto', sans-serif;
 }
 
-.containerlocal {
+.container {
   display: flex;
 }
 
@@ -131,9 +131,21 @@ input[type="submit"]:hover {
 
 
 /* Media query for screens smaller than 600px (adjust as needed) */
-/* @media screen and (max-width: 600px) {
+@media screen and (max-width: 600px) {
+  .container {
+    flex-direction: column; /* Change to a column layout on smaller screens */
+  }
+
+  #login-container,
+  #signout-container {
+    width: 100%; /* Take up 100% of the viewport width on smaller screens */
+    margin: 1em auto; /* Center containers and provide some spacing */
+    margin-bottom: 7em;
+    padding: 1em; /* Add padding to containers */
+    box-sizing: border-box; /* Include padding in width calculation */
+  }
+
   #login-container {
-    margin-right: 1em; /* Remove right margin on smaller screens */
-   /*  width: 35%;
+    margin-top: 1em; /* Add some spacing between description and login container */
   }
 }
