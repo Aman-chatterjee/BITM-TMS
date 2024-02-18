@@ -7,32 +7,43 @@ body {
     margin: 0;
     padding: 0;
     background-color: #faebd7;
+   
 }
 
 .heading {
     color: #3a3535;
-    padding: 1em;
-    margin: 5em;
+    background-color: #1243ab;
+    height: 100px;
+    margin-bottom: 1em;
+    display: flex;
+    justify-content: center;
+    
 
 }
 
-.heading h1 {
+
+.h_1 h1 {
     margin: 0;
-    text-align: center;
+    /*text-align: center;*/
     text-shadow: 2px 2px #5c6970;
+    padding-top: 20px;
 }
 
 .search-container {
-    display: flex;
+display: flex;
+
+justify-content: space-between;
+    
 }
 
 /* CSS for Search box */
 #search {
-    flex: 1;
+    /*flex: 1;8*/
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 30px;
-    margin-left: 5em;
+    margin-left: 1em;
+    margin-right: 1em;
     margin-bottom: 7em;
     background-color: white;
     box-shadow: 2px 2px 10px #202020;
@@ -68,12 +79,12 @@ form button:hover {
 }
 
 #results {
-    flex: 1;
+    /*flex: 1;*/
     border: 1px solid #ccc;
     border-radius: 8px;
     padding: 30px;
-    margin-left: 30em;
-    margin-right: 5em;
+    margin-left: 1em;
+    margin-right: 1em;
     margin-bottom: 7em;
     background-color: white;
     box-shadow: 2px 2px 10px #202020;
@@ -83,4 +94,10 @@ form button:hover {
     border: 1px solid #ccc;
     padding: 1em;
     overflow-x: auto; /* Enable horizontal scrolling if needed */
+}
+@media screen and (max-width: 1080px){
+    .search-container {
+        flex-direction: column;
+    }
+
 }
