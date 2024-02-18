@@ -60,6 +60,8 @@ body {
 #schedule {
     padding: 1em;
     overflow-x: auto; /* Enable horizontal scrolling if needed */
+    border: 1px solid black;
+    border-radius: 2px;
 }
 
 form label {
@@ -68,11 +70,12 @@ form label {
 }
 
 form input[type="text"],
+
 select {
     width: 100%;
     padding: 0.5rem;
     margin-bottom: 1rem;
-    border: 1px solid white;
+    border: 1px solid black;
     border-radius: 0.5em;
 }
 

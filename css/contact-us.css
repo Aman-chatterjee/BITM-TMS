@@ -1,0 +1,39 @@
+@import url('../css/colors.css');
+
+.contact-body{
+    padding: 0;
+    margin: 0;
+}
+
+.sec {
+    display: flex; /* Use flexbox layout */
+    justify-content: space-between; 
+    align-items: flex-start; 
+    margin-bottom: 3em;
+    background-color: antiquewhite;
+}
+
+.contact {
+    flex: 1; 
+    margin-right: 20px; 
+    padding: 3em;
+}
+
+.map {
+    flex: 1; 
+    padding: 3em;
+}
+
+.contact-info{
+    padding-top: 2em;
+    margin-left: 5em;
+}
+.line{
+    display: block;
+    width: 8%;
+    height: 0.1em;
+    text-align:left;
+    margin-left:0;
+    background-color: var(--hr-color);
+    border-radius: 0.5em;
+}
