@@ -7,7 +7,7 @@ body{
   font-family: 'Roboto', sans-serif;
 }
 
-.container {
+.containerlocal {
   display: flex;
 }
 
@@ -130,9 +130,9 @@ input[type="submit"]:hover {
 
 
 /* Media query for screens smaller than 600px (adjust as needed) */
-@media screen and (max-width: 600px) {
+/* @media screen and (max-width: 600px) {
   #login-container {
     margin-right: 1em; /* Remove right margin on smaller screens */
-    width: 35%;
+   /*  width: 35%;
   }
 }
