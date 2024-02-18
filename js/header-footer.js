@@ -2,7 +2,7 @@
 class MyHeader extends HTMLElement {
     connectedCallback() {
         this.attachShadow({ mode: 'open' });
-        this.loadContent('../html/header-main.html').then(() => {
+        this.loadContent('../html/header-main.html').then(() => { 
 
             //Hiding and showing registration tab in the nav-bar
             document.addEventListener('authStateChanged', (event) => {
@@ -22,20 +22,6 @@ class MyHeader extends HTMLElement {
                 }
             });
 
-
-
-            // Find and hide the "Home" tab if on the home page
-            const currentPage = document.body.id;
-            console.log(currentPage);
-
-            if (currentPage === 'home-page') {
-                const homeTab = this.shadowRoot.getElementById('home-tab');
-                if (homeTab) {
-                    homeTab.style.display = 'none';
-                } else {
-                    homeTab.style.display = 'block';
-                }
-            }
 
             
             // Add event listener to toggle menu
