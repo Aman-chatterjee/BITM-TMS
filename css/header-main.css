@@ -111,6 +111,34 @@ nav ul .support-list:hover .support-dropdown {
     flex-direction: column;
     width: fit-content;
 }
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
+@media screen and (max-width: 768px) {
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: #333;
+        position: absolute;
+        top: 199px;
+        left:0;
+        right: 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    
+    
+
+    
+}
+
 
 
 

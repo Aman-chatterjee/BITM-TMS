@@ -10,8 +10,11 @@
     background-size: cover;
     backdrop-filter: blur(7px);
     display:grid;
+   
     font-family: 'Roboto', sans-serif;
+
 }
+
 
 form {
     margin: 0;
