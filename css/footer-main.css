@@ -1,3 +1,6 @@
+@import url('../css/colors.css');
+
+
 body{
     margin: 0%;
     font-family: 'Roboto', sans-serif;
@@ -5,12 +8,13 @@ body{
 
 
 footer {
-    background-color: rgba(0, 0, 0, 1);
+    z-index: 5;
+    background-color: black;
     color: white;
     text-align: center;
     border-radius: 0px;
-    box-shadow: 2px 2px 2px 4px #202020;
-    padding: .2em;
+    box-shadow: 2px 2px 2px 4px var(--box-shadow-color);
+    padding: 0.15em;
     position:fixed;
     bottom: 0;
     width: 100%;

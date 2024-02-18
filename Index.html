@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,70 +11,79 @@
     <link rel="stylesheet" href="../css/index.css">
 
     <script type="module" src="../js/login.js"></script>
-    <script src="../js/progress-bar.js"></script>
     <script src="../js/header-footer.js"></script>
+    <script src="../js/progress-bar.js"></script>
+    
 </head>
 
 <body id="home-page">
-    
-    
+
+
     <my-header></my-header>
- 
-<main class="container">
 
-    <div id="description">
-        <h2>Welcome to BIT Mesra Transport Management System</h2>
-        <p>
-            The BIT Mesra Transport Management System is designed to streamline and simplify the process for students, staff, employees, and administrators.
-        </p>
-   
-        <h3>Features:</h3>
-        <ul>
-            <li>View bus routes and timings</li>
-            <li>Check bus capacity</li>
-            <li>Track buses in real-time</li>
-            <li>Book transport vehicles (Faulty only)</li>
-            <li>Apply for leaves (Employees only)</li>
-        </ul>
+    <main class="container">
 
-    </div>
 
-  
+                <div id="description">
+                    <h2>Welcome to BIT Mesra Transport Management System</h2>
+                    <p>
+                        The BIT Mesra Transport Management System is designed to streamline and simplify the process for
+                        students, staff, employees, and administrators.
+                    </p>
+
+                    <h3>Features:</h3>
+                    <ul>
+                        <li>View bus routes and timings</li>
+                        <li>Check bus capacity</li>
+                        <li>Track buses in real-time</li>
+                        <li>Book transport vehicles (Faulty only)</li>
+                        <li>Apply for leaves (Employees only)</li>
+                    </ul>
+
+                </div>
+            
+
+            
+                <div id="login-container">
+
+                    <h2 class="login-h2">Login</h2>
+                    <form id="login-form">
+                        <label for="email">Email:</label>
+                        <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
+
+                        <label for="password">Password:</label>
+                        <input type="password" id="login-password" name="password" placeholder="Enter your password"
+                            required>
+
+                        <div id="forgot-password">
+                            <a href="#">Forgot Password?</a>
+                        </div>
+
+                        <input type="submit" value="Login">
+
+                    </form>
+                    <my-progress-bar></my-progress-bar>
+                </div>
+            
         
-    <div id="login-container">
-
-        <h2 class="login-h2">Login</h2>
-        <form id="login-form">
-            <label for="email">Email:</label>
-            <input type="email" id="login-email" name="email" placeholder="Enter your email" required>
-
-            <label for="password">Password:</label>
-            <input type="password" id="login-password" name="password" placeholder="Enter your password" required>
-
-            <div id="forgot-password">
-                <a href="#">Forgot Password?</a>
+        <div id="signout-container">
+            <div id="user-info">
+                <!-- Display user information, replace this with actual user data -->
+                <p>Name</p>
+                <p>Email</p>
             </div>
 
-            <input type="submit" value="Login">
 
-        </form>
-        <my-progress-bar></my-progress-bar>
-    </div>
-
-    <div id="signout-container">
-        <div id="user-info">
-            <!-- Display user information, replace this with actual user data -->
-            <p>Name</p>
-            <p>Email</p>
+            <button id="logout-button">Sign Out</button>
         </div>
-        <button id="logout-button">Sign Out</button>
-    </div>
 
-    
 
-</main>
 
-<my-footer></my-footer>
+
+
+    </main>
+
+    <my-footer></my-footer>
 
 
 

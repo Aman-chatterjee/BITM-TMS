@@ -1,9 +1,10 @@
-/* Reset some default form styles */
+@import url('../css/colors.css');
 
+/* Reset some default form styles */
 .student-body{
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background-color: white;
     background-image: url(../res/bit-bg.png);
     background-position:center;
     background-repeat: no-repeat;
@@ -30,7 +31,7 @@ form {
     padding-right: 2em;
     border-radius: 8px;
     color: white;
-    background-color: rgba(0, 0, 0, 0.75);
+    background-color: var(--main-bg-transparent-color);
     box-shadow: 2px 2px 10px #202020;
 }
 
@@ -52,8 +53,8 @@ input, select {
 input[type="submit"] {
     margin-top: 2.5em;
     margin-bottom: 2.5em;
-    background-color: #3498db;
-    color: #fff;
+    background-color: var(--button-bg-color);
+    color: white;
     cursor: pointer;
     width: auto; /* Adjust width for the button */
     padding: 0.5em 1em; /* Add padding for a better appearance */
@@ -61,7 +62,7 @@ input[type="submit"] {
 
 /* Hover effect on the submit button */
 input[type="submit"]:hover {
-    background-color: #2072a3;
+    background-color: var(--button-hover-color);
 }
 
 /* Arrange form inputs using flexbox for mixed layout */
@@ -85,7 +86,8 @@ input[type="submit"]:hover {
 /* Additional styles for responsiveness */
 @media only screen and (max-width: 600px) {
     #registration-form-container {
-        width: 90%;
+        width: 65%;
+        justify-content: center;
     }
 
     #student-registration-form label,

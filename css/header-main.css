@@ -1,13 +1,18 @@
+@import url('../css/colors.css');
+
+
 .header-body{    
     margin: 0;
+    font-weight: 200;
     font-family: 'Roboto', sans-serif;
 }
 
 header {
+    z-index: 5;
     width: auto;
     height: fit-content;
     justify-content: center;
-    color: #ecf0f1; 
+    color: var(--main-bg-color); 
     background-image: url(../res/bus.jpg);
     background-repeat:no-repeat;
     background-size: cover;
@@ -19,8 +24,11 @@ h1 {
     padding: 0.5em;
     font-size: 25px;
     text-align: start;
-    text-shadow: 2px 2px #5887a1;
-    color: #ffffff;
+    text-shadow: 2px 2px var(--text-shadow-color);
+    color: white;
+}
+.menu-toggle{
+    padding: 0.75em;
 }
 
 .logo {
@@ -33,11 +41,11 @@ h1 {
 
 
 nav {
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: var(--main-bg-transparent-color); 
     overflow-x: auto;
     white-space: nowrap;
     border-radius: 0px;
-    box-shadow: 2px 2px 10px #202020;
+    box-shadow: 2px 2px 10px var(--box-shadow-color);
     display: flex;
     align-items: center;
 }
@@ -56,21 +64,21 @@ nav ul li {
 
 nav li a {
     display: block;
-    color: #ecf0f1; 
-    padding: 18px;
+    color: white; 
+    padding: 1em;
     text-decoration: none;
 }
 
 nav ul li a:hover {
-    background-color: #070707;
-    color: #ecf0f1;
+    background-color: black;
+    color: white;
 }
 
 nav ul .register-list .register-dropdown {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.65);
-    box-shadow: 2px 2px 5px 5px #202020;
+    background-color: var(--main-bg-transparent-color);
+    box-shadow: 2px 2px 5px 5px var(--box-shadow-color);
     border-radius: 1px;
 }
 
@@ -84,8 +92,8 @@ nav ul .register-list:hover .register-dropdown {
 nav ul .services-list .services-dropdown {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.65);
-    box-shadow: 2px 2px 5px 5px #202020;
+    background-color: var(--main-bg-transparent-color);
+    box-shadow: 2px 2px 5px 5px var(--box-shadow-color);
     border-radius: 1px;
 }
 
@@ -100,8 +108,8 @@ nav ul .services-list:hover .services-dropdown {
 nav ul .support-list .support-dropdown {
     display: none;
     position: absolute;
-    background-color: rgba(0, 0, 0, 0.65);
-    box-shadow: 2px 2px 5px 5px #202020;
+    background-color: var(--main-bg-transparent-color);
+    box-shadow: 2px 2px 5px 5px var(--box-shadow-color);
     border-radius: 1px;
 }
 
@@ -111,6 +119,10 @@ nav ul .support-list:hover .support-dropdown {
     flex-direction: column;
     width: fit-content;
 }
+.menu-toggle {
+    display: none;
+    cursor: pointer;
+}
 
 
 
@@ -118,6 +130,26 @@ nav ul .support-list:hover .support-dropdown {
 
 /*---------------- Responsive Styles-------------------------------------------------------- */
 @media only screen and (max-width: 600px) {
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: var(--main-bg-transparent-color);
+        position: absolute;
+        top: 199px;
+        left:0;
+        right: 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    
+
     .logo {
         width: 5em;
         padding: .5em;

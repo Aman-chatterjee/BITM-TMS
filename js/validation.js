@@ -7,7 +7,7 @@ return emailRegex.test(email);
 
 function isPasswordValid(password){
     //Returns true if the password is of minimum eight characters, at least one uppercase letter, one lowercase letter, one number and one special character:
-    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&_#])[A-Za-z\d@$!%*?&_#]{8,}$/;
     return passwordRegex.test(password);
 }
 
