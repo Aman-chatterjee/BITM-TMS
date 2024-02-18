@@ -84,7 +84,8 @@ input[type="submit"]:hover {
 /* Additional styles for responsiveness */
 @media only screen and (max-width: 600px) {
     #registration-form-container {
-        width: 90%;
+        width: 65%;
+        justify-content: center;
     }
 
     #employee-registration-form label,
