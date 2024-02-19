@@ -23,7 +23,7 @@ body{
   width: 65%;
   height: fit-content;
   max-width: 300px;
-  display: block;
+  display: none;
   margin: 3em;
   align-self: center;
   margin-right: 5em;

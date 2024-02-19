@@ -3,23 +3,40 @@ class MyHeader extends HTMLElement {
     connectedCallback() {
         this.attachShadow({ mode: 'open' });
         this.loadContent('../html/header-main.html').then(() => { 
-
-            
+       
             //Hiding and showing registration tab in the nav-bar
             document.addEventListener('authStateChanged', (event) => {
                 const user = event.detail.user;
 
+                let currentPage = window.location.pathname;
                 const idRegisterElement = this.shadowRoot.getElementById('id-register');
-
-                if (idRegisterElement) {
-                    // Check if the user is authenticated and hide 'id-register' accordingly
+                const idLoginElement = this.shadowRoot.getElementById('id-login');
+                const idLogoutElement = this.shadowRoot.getElementById('id-logout');
+                
+                if (idRegisterElement && idLoginElement && idLogoutElement) {
+                
                     if (user) {
                         idRegisterElement.style.display = 'none';
+                        idLoginElement.style.display = 'none';
+                        
+                        // Check if the current page is not the home page
+                        if (currentPage !== '/Index.html') {
+                            idLogoutElement.style.display = 'block';
+                        }
+        
+
                     } else {
-                        idRegisterElement.style.display = 'block'; // or 'initial' depending on your design
+                        idRegisterElement.style.display = 'block';
+                        idLogoutElement.style.display = 'none';
+
+                        // Check if the current page is not the home page
+                        if (currentPage !== '/Index.html') {
+                            idLoginElement.style.display = 'block';
+                        }
+                       
                     }
                 } else {
-                    console.error("Element with id 'id-register' not found");
+                    console.error("Element with id 'id-register' or 'id-login' not found");
                 }
             });
 

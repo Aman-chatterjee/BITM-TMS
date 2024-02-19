@@ -75,6 +75,18 @@ nav ul li a:hover {
     color: white;
 }
 
+#id-register{
+    display: none;
+}
+
+#id-login{
+    display: none;
+}
+
+#id-logout{
+    display: none;
+}
+
 nav ul .register-list .register-dropdown {
     display: none;
     position: absolute;
