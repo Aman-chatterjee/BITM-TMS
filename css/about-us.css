@@ -1,0 +1,48 @@
+@import url('../css/colors.css');
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    padding: 1.25em;
+}
+
+section {
+    margin-bottom: 1.875em;
+}
+
+h2 {
+    color: #333;
+}
+
+/* Tablet and Laptop styles */
+@media (min-width: 48em) {
+    header {
+        padding: 1.875em 0;
+    }
+
+    main {
+        padding: 1.875em;
+    }
+
+    section {
+        margin-bottom: 3.125em;
+    }
+}
+
+/* Mobile styles */
+@media (max-width: 47.938em) {
+    header {
+        padding: 0.938em  0;
+    }
+
+    main {
+        padding: 0.938em ;
+    }
+
+    section {
+        margin-bottom: 1.25em ;
+    }
+}
