@@ -10,11 +10,6 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 
 
-
-
-
-
-
 let loginUser = async (evt) => {
   evt.preventDefault();
 

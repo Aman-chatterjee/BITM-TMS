@@ -4,6 +4,7 @@ class MyHeader extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.loadContent('../html/header-main.html').then(() => { 
 
+            
             //Hiding and showing registration tab in the nav-bar
             document.addEventListener('authStateChanged', (event) => {
                 const user = event.detail.user;

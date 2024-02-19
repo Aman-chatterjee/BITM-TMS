@@ -1,6 +1,7 @@
 @import url('../css/colors.css');
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--main-bg-color);
     margin: 0;
     padding: 0;
 }
@@ -30,6 +31,10 @@ h2 {
     section {
         margin-bottom: 3.125em;
     }
+
+    #contact{
+        margin-bottom: 4em;
+    }
 }
 
 /* Mobile styles */
@@ -44,5 +49,9 @@ h2 {
 
     section {
         margin-bottom: 1.25em ;
+    }
+
+    #contact{
+        margin-bottom: 4em;
     }
 }
