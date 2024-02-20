@@ -13,17 +13,18 @@ header {
     width: auto;
     height: fit-content;
     justify-content: center;
-    color: var(--main-bg-color); 
-    background-image: url(../res/bus.jpg);
+    background-color: var(--main-header-color);
+    background-image: url("../res/bus-bg.gif");
     background-repeat:no-repeat;
     background-size: cover;
-    background-position: 50% 70%;
+    background-position: 50% 61%;
     align-items: center;
 }
 
 h1 {
     padding: 0.5em;
     font-size: 25px;
+    font-family: 'Roboto', sans-serif;
     text-align: start;
     text-shadow: 2px 2px var(--text-shadow-color);
     color: white;
@@ -31,6 +32,7 @@ h1 {
 
 .menu-toggle{
     padding: 0.75em;
+    color: white;
 }
 
 .logo {
@@ -38,6 +40,7 @@ h1 {
     height: auto;
     align-content: center;
     padding: 1em;
+    padding-right: 0.5em;
     margin-top: 1em;
 }
 
@@ -165,14 +168,15 @@ nav ul .support-list:hover .support-dropdown {
     
 
     .logo {
-        width: 5em;
+        width: 4em;
+        height: auto;
         padding: .5em;
         margin-top: .5em;
     }
 
     h1 {
         padding: 0.5em;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     nav {
@@ -209,14 +213,15 @@ nav ul .support-list:hover .support-dropdown {
     
 
     .logo {
-        width: 5em;
+        width: 4em;
+        height: auto;
         padding: .5em;
         margin-top: .5em;
     }
 
     h1 {
         padding: 0.5em;
-        font-size: 20px;
+        font-size: 16px;
     }
 
     nav {

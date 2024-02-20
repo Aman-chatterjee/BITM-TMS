@@ -9,15 +9,31 @@ body {
 }
 
 .heading {
-    color: var(--heading-text-color);
-    padding: 1em;
-    margin: 4em;
+    width: fit-content;
+    height: auto;
+    display: flex;
+    flex-direction: row;
+    background-color: var(--button-bg-color);
+    margin: 3em auto;
+    border-radius: 8px;
+    box-shadow: 2px 2px 10px var(--box-shadow-color);
+}
+
+.bus-icon{
+    width: 60px;
+    height: 60px;
+    padding: 0.25em;
+    align-self: center;
 }
 
 .heading h1 {
     margin: 0;
+    padding: 0.25em;
+    padding-left: 0;
+    padding-right: 0.5em;
     text-align: center;
-    text-shadow: 2px 2px var(--text-shadow-color);
+    color: white;
+    text-shadow: 2px 2px var(--heading-text-color);
 }
 
 .search-container {
@@ -101,8 +117,20 @@ form button:hover {
 @media only screen and (max-width: 600px) {
 
     .heading {
-        margin: 1em;
+        margin: 1em auto;
         margin-top: 2em;
+    }
+
+    .heading h1{
+        padding: 0.2em;
+        padding-left: 0;
+        padding-right: 0.4em;
+    }
+
+    .bus-icon{
+        padding: 0.2em;
+        width: 50px;
+        height: 50px;
     }
 
     .search-container {

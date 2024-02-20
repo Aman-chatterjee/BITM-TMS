@@ -27,7 +27,6 @@ let loginUser = async (evt) => {
       // Signed in 
       const user = userCredential.user;
       if(pb) pb.hideProgressBar();
-      //alert("Login Successful");
     })
     .catch((error) => {
       const errorMessage = error.message;
@@ -115,7 +114,7 @@ auth.onAuthStateChanged(function (user) {
       let fullName = snapshot.data().firstName +" "+snapshot.data().lastName;
             document.getElementById('user-info').innerHTML = 
             `
-            <p>${fullName}</p>
+            <p>Hi, ${fullName}</p>
             <p>${user.email}</p>
             `;
     }).catch((error) => {
@@ -146,6 +145,7 @@ function triggerAuthStateChangedEvent(user) {
 let login_form = document.getElementById('login-form');
 let logout_btn = document.getElementById('logout-button');
 let forgot_pass = document.getElementById('forgot-password');
+
 
 if (login_form) { login_form.addEventListener('submit', loginUser); }
 logout_btn.addEventListener('click', signoutUser);
