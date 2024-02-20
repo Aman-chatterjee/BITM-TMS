@@ -40,32 +40,36 @@ let loginUser = async (evt) => {
 }
 
 
+// -------------------------------------------------------------------------------------------------------
 
-
-
-
-
-let logoutUser = async (evt) => {
+function funLogOut(){
 
   signOut(auth)
-    .then(() => {
-      // Sign-out successful.
-      alert("Logout successful");
-    })
-    .catch((error) => {
-      // An error happened.
-      console.error("Logout error:", error);
-      alert("Error during logout. Please try again.");
-    });
+  .then(() => {
+    alert("Logout successful");
+  })
+  .catch((error) => {
+    console.error("Logout error:", error);
+    alert("Error during logout. Please try again.");
+  });
 
+};
+
+
+let signoutUser = async (evt) => {
+  funLogOut();
 }
 
 
+document.addEventListener('logoutUser', ()=>{
+  funLogOut();
+});
 
 
 
 
 
+// --------------------------------------------------------------------------------------------------------------
 
 let resetPasswrod = async (eve) =>{
 
@@ -95,6 +99,7 @@ sendPasswordResetEmail(auth, email)
 
 
 
+// --------------------------------------------------------------------------------------------------------------
 
 
 //Detect change in authentication
@@ -129,6 +134,9 @@ auth.onAuthStateChanged(function (user) {
 
 
 
+
+// --------------------------------------------------------------------------------------------------------------
+
 function triggerAuthStateChangedEvent(user) {
   const authStateChangedEvent = new CustomEvent('authStateChanged', { detail: { user } });
   document.dispatchEvent(authStateChangedEvent);
@@ -140,8 +148,14 @@ let logout_btn = document.getElementById('logout-button');
 let forgot_pass = document.getElementById('forgot-password');
 
 if (login_form) { login_form.addEventListener('submit', loginUser); }
-logout_btn.addEventListener('click', logoutUser);
+logout_btn.addEventListener('click', signoutUser);
 forgot_pass.addEventListener('click', resetPasswrod);
+
+
+
+
+
+
 
 
 //Query

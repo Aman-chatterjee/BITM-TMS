@@ -28,6 +28,7 @@ h1 {
     text-shadow: 2px 2px var(--text-shadow-color);
     color: white;
 }
+
 .menu-toggle{
     padding: 0.75em;
 }
@@ -149,7 +150,51 @@ nav ul .support-list:hover .support-dropdown {
         flex-direction: column;
         background-color: var(--main-bg-transparent-color);
         position: absolute;
-        top: 199px;
+        top: 203px;
+        left:0;
+        right: 0;
+    }
+
+    .menu.active {
+        display: flex;
+    }
+
+    .menu-toggle {
+        display: block;
+    }
+    
+
+    .logo {
+        width: 5em;
+        padding: .5em;
+        margin-top: .5em;
+    }
+
+    h1 {
+        padding: 0.5em;
+        font-size: 20px;
+    }
+
+    nav {
+        margin-top: 0.5em;
+        align-items: center;
+    }
+
+    nav a {
+        padding: 10px;
+        font-size: 14px;
+    }
+}
+
+
+@media only screen and (max-width: 430px) {
+
+    .menu {
+        display: none;
+        flex-direction: column;
+        background-color: var(--main-bg-transparent-color);
+        position: absolute;
+        top: 179px;
         left:0;
         right: 0;
     }

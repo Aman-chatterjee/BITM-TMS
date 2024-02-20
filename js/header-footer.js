@@ -4,56 +4,8 @@ class MyHeader extends HTMLElement {
         this.attachShadow({ mode: 'open' });
         this.loadContent('../html/header-main.html').then(() => { 
        
-            //Hiding and showing registration tab in the nav-bar
-            document.addEventListener('authStateChanged', (event) => {
-                const user = event.detail.user;
 
-                let currentPage = window.location.pathname;
-                const idRegisterElement = this.shadowRoot.getElementById('id-register');
-                const idLoginElement = this.shadowRoot.getElementById('id-login');
-                const idLogoutElement = this.shadowRoot.getElementById('id-logout');
-                
-                if (idRegisterElement && idLoginElement && idLogoutElement) {
-                
-                    if (user) {
-                        idRegisterElement.style.display = 'none';
-                        idLoginElement.style.display = 'none';
-                        
-                        // Check if the current page is not the home page
-                        if (currentPage !== '/Index.html') {
-                            idLogoutElement.style.display = 'block';
-                        }
-        
-
-                    } else {
-                        idRegisterElement.style.display = 'block';
-                        idLogoutElement.style.display = 'none';
-
-                        // Check if the current page is not the home page
-                        if (currentPage !== '/Index.html') {
-                            idLoginElement.style.display = 'block';
-                        }
-                       
-                    }
-                } else {
-                    console.error("Element with id 'id-register' or 'id-login' not found");
-                }
-            });
-
-
-            
-            // Add event listener to toggle menu
-            const menuToggle = this.shadowRoot.querySelector('.menu-toggle');
-            if (menuToggle) {
-                menuToggle.addEventListener('click', () => {
-                    const menu = this.shadowRoot.querySelector('.menu');
-                    menu.classList.toggle('active');
-                });
-            } else {
-                console.error("Element with class 'menu-toggle' not found");
-            }
-
-
+        navFunctions(this.shadowRoot);
 
         });
 
@@ -69,6 +21,84 @@ class MyHeader extends HTMLElement {
     }
 
 }
+
+
+
+
+
+
+
+
+    function navFunctions(sRoot){
+
+            let currentPage = window.location.pathname;
+            const idRegisterElement = sRoot.getElementById('id-register');
+            const idLoginElement = sRoot.getElementById('id-login');
+            const idLogoutElement = sRoot.getElementById('id-logout');
+            const menuToggle = sRoot.querySelector('.menu-toggle');
+
+            //Hiding and showing registration tab in the nav-bar
+            document.addEventListener('authStateChanged', (event) => {
+                const user = event.detail.user;
+
+                if (idRegisterElement && idLoginElement && idLogoutElement) {
+                
+                    if (user) {
+                        idRegisterElement.style.display = 'none';
+                        idLoginElement.style.display = 'none';
+                        idLogoutElement.style.display = 'block';   
+
+                    } else {
+                        idRegisterElement.style.display = 'block';
+                        idLogoutElement.style.display = 'none';
+
+                        // Check if the current page is not the home page
+                        if (currentPage !== '/Index.html') {
+                            idLoginElement.style.display = 'block';
+                        }
+                       
+                    }
+                } 
+            });
+
+
+            //Signout tab event listner
+            idLogoutElement.addEventListener('click', ()=>{
+                triggerLogout();
+            });
+
+
+            
+            // Add event listener to toggle menu
+            if (menuToggle) {
+                menuToggle.addEventListener('click', () => {
+                    const menu = sRoot.querySelector('.menu');
+                    menu.classList.toggle('active');
+                });
+            } else {
+                console.error("Element with class 'menu-toggle' not found");
+            }
+    
+}
+
+
+
+
+function triggerLogout() {
+    const logoutEvent = new CustomEvent('logoutUser');
+    document.dispatchEvent(logoutEvent);
+  }
+
+
+
+
+
+
+
+
+
+
+
 
 
 
