@@ -23,14 +23,16 @@ body {
     width: 60px;
     height: 60px;
     padding: 0.25em;
+    padding-left: 1em;
+    padding-right: 0.5em;
     align-self: center;
 }
 
 .heading h1 {
     margin: 0;
     padding: 0.25em;
-    padding-left: 0;
-    padding-right: 0.5em;
+    padding-left: 0.25em;
+    padding-right: 1em;
     text-align: center;
     color: white;
     text-shadow: 2px 2px var(--heading-text-color);
@@ -119,15 +121,17 @@ form button:hover {
     .heading {
         margin: 1em auto;
         margin-top: 2em;
+        font-size: small;
     }
 
     .heading h1{
         padding: 0.2em;
-        padding-left: 0;
+        padding-left: 0.4em;
         padding-right: 0.4em;
     }
 
     .bus-icon{
+        display: none;
         padding: 0.2em;
         width: 50px;
         height: 50px;

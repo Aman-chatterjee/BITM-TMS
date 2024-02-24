@@ -8,32 +8,36 @@
     font-family: 'Roboto', sans-serif;
 }
 
-header {
+header{
     z-index: 5;
+    background-color: var(--main-header-color);
+    background-image: url("../res/header-bg.jpg");
+    background-repeat:no-repeat;
+    background-size: cover;
+    background-position: 50% 48%;
+}
+
+
+.header-section {
     width: auto;
     height: fit-content;
     justify-content: center;
-    background-color: var(--main-header-color);
-    background-image: url("../res/bus-bg.gif");
-    background-repeat:no-repeat;
-    background-size: cover;
-    background-position: 50% 61%;
     align-items: center;
+    backdrop-filter: blur(2.5px);
 }
 
+
+
 h1 {
+    width: fit-content;
     padding: 0.5em;
     font-size: 25px;
     font-family: 'Roboto', sans-serif;
-    text-align: start;
+    text-align: left;
     text-shadow: 2px 2px var(--text-shadow-color);
     color: white;
 }
 
-.menu-toggle{
-    padding: 0.75em;
-    color: white;
-}
 
 .logo {
     width: 7em;
@@ -42,6 +46,12 @@ h1 {
     padding: 1em;
     padding-right: 0.5em;
     margin-top: 1em;
+}
+
+
+.menu-toggle{
+    padding: 0.75em;
+    color: white;
 }
 
 
@@ -153,7 +163,7 @@ nav ul .support-list:hover .support-dropdown {
         flex-direction: column;
         background-color: var(--main-bg-transparent-color);
         position: absolute;
-        top: 203px;
+        top: 170px;
         left:0;
         right: 0;
     }
@@ -198,7 +208,7 @@ nav ul .support-list:hover .support-dropdown {
         flex-direction: column;
         background-color: var(--main-bg-transparent-color);
         position: absolute;
-        top: 179px;
+        top: 155px;
         left:0;
         right: 0;
     }
