@@ -1,15 +1,26 @@
+
     //Showing the Map
     let longitude = 85.4399;
     let latitude = 23.4123;
-    var map = L.map('map').setView([latitude, longitude], 13);
+    var map = L.map('map').setView([latitude, longitude], 10);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
 
+    L.Routing.control({
+        waypoints: [
+          L.latLng(23.4123, 85.4399),
+          L.latLng(23.3721, 85.3383)
+        ]
+      }).addTo(map);
 
 
 
+
+
+
+      
     document.getElementById('search-form').addEventListener('submit', function(event) {
         event.preventDefault(); // Prevent form submission
     
