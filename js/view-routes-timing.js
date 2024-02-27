@@ -1,7 +1,8 @@
 
     //Showing the Map
-    let longitude = 85.4399;
     let latitude = 23.4123;
+    let longitude = 85.4399;
+   
     var map = L.map('map').setView([latitude, longitude], 10);
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
         maxZoom: 19,
@@ -14,8 +15,6 @@
           L.latLng(23.3721, 85.3383)
         ]
       }).addTo(map);
-
-
 
 
 
