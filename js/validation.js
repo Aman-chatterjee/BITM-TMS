@@ -11,5 +11,9 @@ function isPasswordValid(password){
     return passwordRegex.test(password);
 }
 
-export { isValidEmail, isPasswordValid };
+function isPhoneNoValid(phoneNo){
+    return phoneNo.length === 10;
+}
+
+export { isValidEmail, isPasswordValid, isPhoneNoValid};
 

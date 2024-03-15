@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "dotenv": "^16.4.5",
     "leaflet": "^1.9.4",
     "leaflet-routing-machine": "^3.2.12"
   },

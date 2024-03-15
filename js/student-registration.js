@@ -1,5 +1,5 @@
 import { app } from "../js/firebase-initialize.js";
-import { isValidEmail, isPasswordValid } from "../js/validation.js";
+import { isValidEmail, isPasswordValid, isPhoneNoValid} from "../js/validation.js";
 import { getAuth, createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-auth.js";
 import { getFirestore, collection, doc, addDoc, setDoc } from "https://www.gstatic.com/firebasejs/10.8.0/firebase-firestore.js";
 
@@ -37,6 +37,12 @@ let registerUser = async (evt) => {
     alert(alertText);
     return false;
   }
+
+  if(!isPhoneNoValid(phoneNo)){
+    alert("Please enter a valid phone number");
+    return false;
+  }
+
 
   try {
     pb.showProgressBar();
